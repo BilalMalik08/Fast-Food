@@ -1,0 +1,40 @@
+.confirmOrder-row1 {
+    height: 10vh;
+    color: white;
+    text-align: center;
+    cursor: default;
+}
+
+.confirmOrder-row2 {
+    height: 73vh;
+    padding-top: 3%;
+}
+
+@keyframes moveImage {
+    0% {
+        transform: translateX(-200px);
+    }
+
+    50% {
+        transform: translateX(200px);
+
+    }
+
+    100% {
+        transform: translateX(-200px);
+    }
+}
+
+.confirmOrder-row2 img {
+    animation: moveImage 3s ease infinite;
+}
+
+.confirmOrder-row3 {
+    height: 7vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: default;
+}

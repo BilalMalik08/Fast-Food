@@ -1,0 +1,118 @@
+.cart-row1 {
+    height: 10vh;
+    color: white;
+    cursor: default;
+}
+
+.cart-row2 {
+    height: 73vh;
+    padding-bottom: 8px;
+}
+
+.cart-row3 {
+    height: 7vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: default;
+}
+
+.cart-col {
+    height: 73vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+.cart-col::-webkit-scrollbar {
+    display: none;
+}
+
+.cart-container {
+    flex-direction: column;
+}
+
+.cart-card {
+    border: 2px solid white;
+    height: 100%;
+    width: 100%;
+}
+
+.cart-img {
+    height: 100%;
+    width: 100%;
+}
+
+.cart-card-title {
+    text-align: start;
+}
+
+.cart-card-text {
+    text-align: start;
+    font-weight: 300;
+}
+
+.button-select-quantity {
+    display: flex;
+    align-items: center;
+}
+
+.selectOptions {
+    margin-left: 15px;
+    height: 37px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+.total-container {
+    border: 3px solid white;
+    height: 60vh;
+    border-radius: 10px;
+}
+
+.pay-card {
+    border: 3px solid white;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+.pay-card-title {
+    text-align: left;
+}
+
+.coupon-card {
+    border: 3px solid white;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.coupon-card-body {
+    flex-direction: column;
+}
+
+.coupon-card-title {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.coupon-input {
+    color: white;
+    display: block;
+    margin: 10px 0;
+    width: 100%;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 5px;
+
+}
+
+.coupon-input::placeholder {
+    color: white;
+}
+
+.coupon-btn {
+    margin-top: 10px;
+}

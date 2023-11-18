@@ -1,0 +1,18 @@
+.adminSettings-row1 {
+    height: 83vh;
+}
+
+.adminSettings-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.adminSettings-input {
+    width: 50%;
+    margin-bottom: 5px;
+}
+
+.adminSettings-btn {
+    margin-top: 5px;
+}

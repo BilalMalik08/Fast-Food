@@ -1,0 +1,19 @@
+.cart-Cartcheckout-heading {
+    color: white;
+    text-align: center;
+}
+
+.cart-Cartcheckout-card {
+    border: 2px solid white;
+    margin: 15px;
+}
+
+.cart-Cartcheckout-card-title {
+    text-align: left;
+    margin: 3px 0;
+}
+
+.cart-Cartcheckout-card-text {
+    text-align: left;
+    margin: 3px 0;
+}

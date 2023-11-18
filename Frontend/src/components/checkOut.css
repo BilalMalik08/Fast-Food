@@ -1,0 +1,40 @@
+.checkOut-row1 {
+    height: 10vh;
+    color: white;
+    cursor: default;
+}
+
+.checkOut-container {
+    flex-direction: column;
+}
+
+.checkout-heading-container {
+    justify-content: space-around;
+    cursor: default;
+}
+
+#bill {
+    margin-right: 20px;
+}
+
+.checkOut-row2 {
+    border: 3px solid white;
+    border-radius: 15px;
+    height: 58vh;
+    width: 70vw;
+    overflow-y: scroll;
+}
+
+.checkout-heading {
+    color: white;
+}
+
+.checkOut-row3 {
+    height: 7vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: default;
+}

@@ -1,0 +1,89 @@
+.reviews-row1 {
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: default;
+    margin-bottom: 20px;
+}
+
+.reviews-row2 {
+    height: 7vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: default;
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.reviews-card {
+    background: transparent;
+}
+
+.reviews-card-body {
+    font-weight: bolder;
+    color: white;
+}
+
+.reviews-card-title {
+    text-align: center;
+    cursor: default;
+
+}
+
+.reviews-card-text {
+    text-align: justify;
+    cursor: default;
+}
+
+.reviews-card-img-top {
+    height: 45vh;
+    border-radius: 15px;
+}
+
+.review-form-container {
+    flex-direction: column;
+}
+
+.reviewImage {
+    height: 300px;
+}
+
+.complaintImage {
+    padding-top: 20px;
+    height: 320px;
+    width: 600px;
+}
+
+.reviews-row2 {
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: default;
+}
+
+.reviews-row3 {
+    height: 63vh;
+}
+
+.clients-container {
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.clients-cart-text {
+    text-align: center;
+}

@@ -1,0 +1,37 @@
+.navbar-row1 {
+    height: 10vh;
+}
+
+.navbar {
+    background-color: black;
+    z-index: 1;
+    position: fixed;
+}
+
+.logo {
+    height: 40px;
+}
+
+.nav-item .nav-link {
+    color: white;
+}
+
+.shopping-cart {
+    color: white;
+    font-size: 20px;
+    margin: 5px 15px;
+}
+
+.cart-badge {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-link {
+    display: none;
+}

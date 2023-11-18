@@ -1,0 +1,69 @@
+.phoneRight-container {
+    height: 100vh;
+    flex-direction: column;
+}
+
+.phoneRight-container h3 {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: default;
+}
+
+.phoneRight {
+    padding: 25px;
+    border-radius: 25px;
+    border: 3px solid white;
+}
+
+.download-heading {
+    margin: 10px 10px;
+}
+
+.download-app {
+    margin: 10px 10px;
+}
+
+.follow {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.icons-container {
+    margin: 0 15px;
+}
+
+.icons {
+    margin: 0 5px;
+    font-size: 20px;
+    transition: 0.2s ease-in-out;
+}
+
+.icons:hover {
+    font-size: 45px;
+}
+
+#facrbook:hover {
+    color: rgb(13, 13, 211);
+}
+
+#twitter:hover {
+    color: rgb(82, 193, 245);
+}
+
+#instagram:hover {
+    color: rgb(225, 42, 115);
+}
+
+#pinterest:hover {
+    color: rgb(237, 106, 121);
+}
+
+#youtube:hover {
+    color: rgb(205, 32, 31);
+}

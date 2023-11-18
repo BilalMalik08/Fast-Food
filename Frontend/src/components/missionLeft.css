@@ -1,0 +1,12 @@
+.mission-left-container {
+    height: 80vh;
+}
+
+.mission-left-img {
+    transition: 1s ease-in-out;
+}
+
+.mission-left-img:hover {
+    height: 550px;
+    width: 700px;
+}

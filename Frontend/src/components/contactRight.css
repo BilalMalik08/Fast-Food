@@ -1,0 +1,10 @@
+.map-container {
+    height: 73vh;
+    width: 100%;
+}
+
+.google-map {
+    height: 95%;
+    width: 100%;
+    border-radius: 15px;
+}

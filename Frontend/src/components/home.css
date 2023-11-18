@@ -1,0 +1,47 @@
+.home-row1 {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.marquee-heading {
+    width: 30%;
+    cursor: default;
+}
+
+.home-row2 {
+    height: 90vh;
+}
+
+.home-row3 {
+    height: 100vh;
+}
+
+.home-row4 {
+    height: 100vh;
+}
+
+.home-row5 {
+    height: 103vh;
+}
+
+.home-row6 {
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: default;
+}
+
+.home-row8 {
+    height: 7vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: default;
+}

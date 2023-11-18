@@ -1,0 +1,21 @@
+.admin-side-bar {
+    background-color: black;
+    height: 71vh;
+    padding: 0px 0px;
+    border-radius: 0;
+}
+
+.side-bar-list {
+    padding: 0px 10px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    width: 85%;
+}
+
+.col-md-3 {
+    padding: 0;
+}
+
+.adminSidebar-icons {
+    margin: 0px 15px;
+}

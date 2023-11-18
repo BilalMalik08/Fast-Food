@@ -1,0 +1,12 @@
+.adminDashboard-row1 {
+    height: 83vh;
+    background: url("../Img//dashboardBg.jpg") no-repeat center center/cover;
+}
+
+.adminDashboard-row2 {
+    height: 20vh;
+}
+
+.adminDashboard-row3 {
+    height: 63vh;
+}

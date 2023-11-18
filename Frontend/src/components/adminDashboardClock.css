@@ -1,0 +1,24 @@
+.date-time-container {
+    text-align: center;
+    flex-direction: column;
+}
+
+.date-time {
+    padding: 50px 50px;
+    color: white;
+    border: 9px solid white;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.date {
+    font-size: 4rem;
+    cursor: default;
+}
+
+
+
+.clock {
+    font-size: 4rem;
+    cursor: default;
+}

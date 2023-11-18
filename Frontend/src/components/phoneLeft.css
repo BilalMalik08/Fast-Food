@@ -1,0 +1,30 @@
+.phoneLeft-container {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.phone {
+    width: 300px;
+    height: 600px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone-screen {
+    width: 282px;
+    height: 590px;
+    position: absolute;
+    border: 5px solid #c2bdbd;
+    border-radius: 27px;
+    overflow: scroll;
+}
+
+.phone-screen::-webkit-scrollbar {
+    display: none;
+}
+
+.phone-app-img {
+    width: 100%;
+}

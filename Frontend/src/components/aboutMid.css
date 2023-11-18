@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fork {
+    height: 85vh;
+    transition: 1s ease-in-out;
+}
+
+.fork:hover {
+    height: 100vh;
+}

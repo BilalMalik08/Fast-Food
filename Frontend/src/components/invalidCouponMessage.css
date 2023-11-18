@@ -1,0 +1,10 @@
+.invalid-modal-style {
+    position: absolute;
+    top: -260px;
+    left: 41%;
+}
+
+.invalid-modal-content {
+    background-color: #dc3545;
+    color: white;
+}

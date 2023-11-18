@@ -1,0 +1,52 @@
+.menu-card-row1 {
+    height: 240vh;
+    background-color: white;
+
+}
+
+.menu-card-row-cols {
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-card-col {
+    /* width: 30%; */
+}
+
+.menu-card {
+    height: 75vh;
+}
+
+
+
+.menu-card-img {
+    border-radius: 0;
+    height: 40vh;
+}
+
+.menu-card-body {
+    height: 35vh;
+}
+
+.menu-card-title-container {
+    height: 7vh;
+}
+
+.menu-card-title {
+    color: black;
+}
+
+.menu-card-text-container {
+    height: 15vh;
+}
+
+.menu-card-text {
+    color: black;
+    font-weight: 400;
+}
+
+.menu-card-btn-container {
+    height: 7vh;
+}

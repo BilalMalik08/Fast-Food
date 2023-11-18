@@ -1,0 +1,21 @@
+.about-row1 {
+    height: 100vh;
+}
+
+.about-row2 {
+    height: 100vh;
+}
+
+.about-row3 {
+    height: 100vh;
+}
+
+.about-row4 {
+    height: 7vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: default;
+}

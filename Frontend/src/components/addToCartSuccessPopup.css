@@ -1,0 +1,14 @@
+.addToCart-modal-style {
+    position: absolute;
+    top: -260px;
+    left: 41%;
+}
+
+.addToCart-modal-content {
+    background-color: #28a745;
+    color: white;
+}
+
+.check-icon {
+    margin-left: 7px;
+}

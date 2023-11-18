@@ -1,0 +1,17 @@
+.carousel-row1 {
+    height: 90vh;
+}
+
+.carousel {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+
+}
+
+.carouselImg {
+    height: 90vh;
+    width: 100%;
+}

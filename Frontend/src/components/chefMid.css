@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.knife {
+    height: 85vh;
+    transition: 1s ease-in-out;
+}
+
+.knife:hover {
+    height: 100vh;
+}

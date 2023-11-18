@@ -1,0 +1,20 @@
+.admin-foodMenu-row1 {
+    height: 10vh;
+    background-color: black;
+}
+
+.admin-foodMenu-btn-container {
+    justify-content: flex-end;
+}
+
+.admin-foodMenu-btn {
+    height: 100%;
+    width: 15%;
+    margin-right: 18px;
+}
+
+.admin-foodMenu-row2 {
+    height: 73vh;
+    overflow-y: scroll;
+    background-color: black;
+}

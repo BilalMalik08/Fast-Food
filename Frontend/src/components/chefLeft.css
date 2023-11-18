@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.card {
+    background: transparent;
+}
+
+.card-body {
+    font-weight: bolder;
+    color: white;
+}
+
+.card-title {
+    text-align: center;
+
+}
+
+.card-text {
+    text-align: justify;
+}
+
+.card-img-top {
+    height: 45vh;
+    border-radius: 15px;
+}
+
+.chef-card-title {
+    cursor: default;
+}
+
+.chef-card-text {
+    cursor: default;
+}
+
+.kitchen-img {
+    padding-bottom: 5px;
+}

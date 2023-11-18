@@ -1,0 +1,25 @@
+.contact-list-container {
+    height: 73vh;
+}
+
+.list-group {
+    height: 100%;
+    width: 100%;
+}
+
+.list-group-item {
+    margin: 20px 0px;
+}
+
+.suggestion-box {
+    height: 18vh;
+    padding-left: 18px;
+}
+
+.suggestion-box::placeholder {
+    color: black;
+}
+
+.contactLeft-icon {
+    margin: 0px 10px;
+}

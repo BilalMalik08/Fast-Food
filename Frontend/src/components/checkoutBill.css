@@ -1,0 +1,19 @@
+.checkout-bill-box {
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    border: 2px solid white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.checkout-bill-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.checkout-bill-amount {
+    font-size: 18px;
+    color: white;
+}

@@ -1,0 +1,17 @@
+.adminMenu-row1 {
+    height: 10vh;
+}
+
+.adminMenu-btn-container {
+    justify-content: flex-start;
+}
+
+.adminMenu-btn {
+    height: 100%;
+    width: 15%;
+}
+
+.adminMenu-row2 {
+    height: 73vh;
+    overflow-y: scroll;
+}
