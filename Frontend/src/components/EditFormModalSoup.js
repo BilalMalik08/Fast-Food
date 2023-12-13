@@ -28,7 +28,7 @@ const EditFormModalSoup = ({ show, handleClose, soup, onSave }) => {
   };
 
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} centered>
       <Modal.Header closeButton>
         <Modal.Title>Edit Soup Item</Modal.Title>
       </Modal.Header>

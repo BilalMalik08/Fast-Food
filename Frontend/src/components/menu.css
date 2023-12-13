@@ -1,10 +1,10 @@
 .menu-row1 {
     height: 10vh;
-    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: black;
+    background-color: white;
     cursor: default;
 }
 
@@ -16,4 +16,22 @@
     align-items: center;
     color: white;
     cursor: default;
+}
+
+
+@media only screen and (min-width: 481px) and (max-width: 820px) {
+
+
+    .menu-row1 h6 {
+        font-size: 1.3rem;
+    }
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+
+
+    .menu-row2 h6 {
+        font-size: 0.9rem;
+    }
 }

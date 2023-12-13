@@ -1,7 +1,11 @@
 .menu-card-row1 {
-    height: 240vh;
+    height: 73vh;
     background-color: white;
+    overflow-y: auto;
+}
 
+.menu-card-row1::-webkit-scrollbar {
+    display: none;
 }
 
 .menu-card-row-cols {
@@ -11,15 +15,14 @@
     align-items: center;
 }
 
-.menu-card-col {
-    /* width: 30%; */
+.menu-card-container {
+    width: 85%;
+    margin: auto;
 }
 
 .menu-card {
     height: 75vh;
 }
-
-
 
 .menu-card-img {
     border-radius: 0;
@@ -40,6 +43,7 @@
 
 .menu-card-text-container {
     height: 15vh;
+    margin-bottom: 10px;
 }
 
 .menu-card-text {
@@ -49,4 +53,54 @@
 
 .menu-card-btn-container {
     height: 7vh;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+@media only screen and (min-width: 481px) and (max-width: 820px) {
+    .menu-card-row1 {
+        height: 83vh;
+    }
+
+    .menu-card-text {
+        text-align: center;
+    }
+
+    .menu-card-col {
+        flex: 0 0 50%;
+    }
+
+    .menu-card-img {
+        height: 20vh;
+        object-fit: cover;
+        border-radius: 0;
+    }
+
+    .menu-card {
+        height: 55vh;
+    }
+
+    .menu-card-body {
+        flex-grow: 1;
+    }
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .menu-card-text {
+        text-align: center;
+    }
+
+    .menu-card {
+        height: 85vh;
+    }
+
+    .menu-card-btn {
+        margin-top: 20vh;
+    }
 }

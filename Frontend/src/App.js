@@ -29,7 +29,7 @@ import ConfirmOrder from "./components/ConfirmOrder";
 import Login from "./components/Login";
 import ThankYou from "./components/ThankYou";
 import Reviews from "./components/Reviews";
-import Complaints from "./components/Complaints";
+import ShowReviews from "./components/ShowReviews";
 
 function App() {
   return (
@@ -54,7 +54,7 @@ function App() {
           <Route path="/menu/:category" element={<MenuPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/reviews" element={<Reviews />} />
-          <Route path="/complaints" element={<Complaints />} />
+          <Route path="/showreviews" element={<ShowReviews />} />
           <Route path="/adminlogin" element={<AdminLoginForm />} />
           <Route path="/dashboard" element={<AdminDashboardContainer />} />
           <Route path="/adminmenu" element={<AdminMenuContainer />} />
@@ -70,6 +70,7 @@ function App() {
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/orderconfirmation" element={<ConfirmOrder />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Login />} />
           <Route path="/thankyou" element={<ThankYou />} />
         </Routes>
       </div>

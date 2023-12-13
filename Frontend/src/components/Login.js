@@ -1,4 +1,5 @@
 import "./login.css";
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,6 +7,7 @@ import { faBurger } from "@fortawesome/free-solid-svg-icons";
 import ThankYou from "./ThankYou";
 import LoadingSpinner from "./LoadingSpinner";
 import InvalidCredentialsAlert from "./InvalidCredentialsAlert";
+import SignupModal from "./SignupModal";
 import Footer from "./Footer";
 
 function Login() {
@@ -18,26 +20,52 @@ function Login() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [showInvalidCredentialsAlert, setShowInvalidCredentialsAlert] =
     useState(false);
+  const [showSignupModal, setShowSignupModal] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserFormData({ ...userFormData, [name]: value.toLowerCase() });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = userFormData;
-    // Simulated login logic for demonstration purposes
-    if (email === "userxyz" && password === "userxyz") {
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-        setLoggedIn(true);
-        window.history.pushState(null, "", "/thankyou");
-      }, 3000);
-    } else {
-      setShowInvalidCredentialsAlert(true);
+
+    try {
+      const response = await axios.post("http://localhost:5000/auth/login", {
+        email,
+        password,
+      });
+
+      if (response.status === 200) {
+        const data = response.data;
+        // Successful login, you can handle the data as needed
+        console.log("Login successful:", data);
+        setLoading(true);
+        setTimeout(() => {
+          setLoading(false);
+          setLoggedIn(true);
+          // Redirect to the ThankYou page or any other page
+          window.history.pushState(null, "", "/thankyou");
+        }, 3000);
+      } else {
+        // Handle error response from the server
+        console.error("Login failed:", response.data);
+        setShowInvalidCredentialsAlert(true);
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      // Handle other errors (network issues, etc.)
     }
+  };
+
+  const handleSignup = async (userData) => {
+    // Add your signup logic here using the userData
+    // For example, make an API call to register the user
+    console.log("Signup data:", userData);
+
+    // Close the signup modal
+    setShowSignupModal(false);
   };
 
   useEffect(() => {
@@ -70,7 +98,7 @@ function Login() {
                     type="text"
                     name="email"
                     id="email"
-                    placeholder="Enter Your Email"
+                    placeholder="Enter Your Username"
                     required
                     value={userFormData.email}
                     onChange={handleInputChange}
@@ -94,7 +122,13 @@ function Login() {
                     Log In
                   </button>
                   <Link to="/signup">
-                    <button className="LoginForm-btn form-btn">Sign Up</button>
+                    <button
+                      className="LoginForm-btn form-btn"
+                      type="submit"
+                      onClick={() => setShowSignupModal(true)}
+                    >
+                      Sign Up
+                    </button>
                   </Link>
                 </div>
                 <div className="container signup-msg-container">
@@ -116,6 +150,11 @@ function Login() {
       <div className="row login-row2">
         <Footer />
       </div>
+      <SignupModal
+        show={showSignupModal}
+        handleClose={() => setShowSignupModal(false)}
+        handleSignup={handleSignup}
+      />
     </>
   );
 }

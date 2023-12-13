@@ -28,7 +28,7 @@ const EditFormModalChicken = ({ show, handleClose, chicken, onSave }) => {
   };
 
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} centered>
       <Modal.Header closeButton>
         <Modal.Title>Edit Chicken Item</Modal.Title>
       </Modal.Header>

@@ -36,11 +36,6 @@ function ContactLeft() {
             <FontAwesomeIcon icon={faClock} className="contactLeft-icon" />
             {"Timings: 10Am to 1AM"}
           </li>
-          <textarea
-            name=""
-            className="suggestion-box list-group-item"
-            placeholder="Your Suggestions"
-          ></textarea>
         </ul>
       </div>
     </>

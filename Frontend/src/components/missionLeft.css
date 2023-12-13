@@ -10,3 +10,43 @@
     height: 550px;
     width: 700px;
 }
+
+
+
+
+@media only screen and (min-width: 481px) and (max-width: 820px) {
+    .mission-left-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+    }
+
+    .mission-left-card-body .mission-left-img {
+        height: 32vh;
+        margin-left: 55px;
+    }
+
+    .mission-left-card-body .mission-left-img:hover {
+        height: 500px;
+        width: 600px;
+    }
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .mission-left-container {
+        justify-content: flex-start;
+        align-items: flex-start;
+        height: 50vh;
+    }
+
+    .mission-left-card-body .mission-left-img {
+        height: 20vh;
+    }
+
+    .mission-left-card-body .mission-left-img:hover {
+        height: 250px;
+        width: 300px;
+    }
+}

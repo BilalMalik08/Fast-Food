@@ -1,49 +1,119 @@
-import "./reviews.css";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import complaintImage from "../Img/complaintImage.png";
+import axios from "axios";
 
 function ReviewsRight() {
+  const [formData, setFormData] = useState({
+    name: "",
+    contact: "",
+    email: "",
+    opinion: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/review",
+        formData
+      );
+
+      if (response.status === 201) {
+        console.log("Review submitted successfully");
+        setFormData({ name: "", contact: "", email: "", opinion: "" });
+      } else {
+        console.error(
+          "Failed to submit review. Unexpected status:",
+          response.status
+        );
+      }
+    } catch (error) {
+      console.error("Error submitting review", error.message, error.response);
+    }
+  };
+
   return (
     <>
-      <div classNameName="container review-form-container">
-        <h1>Complaint Box</h1>
-        <form className="row g-3">
+      <div className="container review-form-container">
+        <h1>Review Box</h1>
+        <form className="row g-3" onSubmit={handleSubmit}>
           <div className="col-md-6">
-            <label for="inputName4" className="form-label review-form-label">
+            <label
+              htmlFor="inputName4"
+              className="form-label review-form-label"
+            >
               Name
             </label>
-            <input type="text" className="form-control" id="inputName4" />
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className="col-md-6">
-            <label for="inputContact4" className="form-label review-form-label">
+            <label
+              htmlFor="inputContact4"
+              className="form-label review-form-label"
+            >
               Contact
             </label>
-            <input type="number" className="form-control" id="inputContact4" />
-          </div>
-          <div className="col-md-12">
-            <label for="inputContact4" className="form-label review-form-label">
-              Email
-            </label>
-            <input type="email" className="form-control" id="inputEmail4" />
+            <input
+              type="number"
+              className="form-control"
+              id="contact"
+              value={formData.contact}
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className="col-md-12">
             <label
-              for="inputComplaint4"
+              htmlFor="inputEmail4"
               className="form-label review-form-label"
             >
-              Your Complaint
+              Email
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="col-md-12">
+            <label
+              htmlFor="inputOpinion4"
+              className="form-label review-form-label"
+            >
+              Your Opinion
             </label>
             <input
               type="text"
               className="form-control review-form-input"
-              id="inputComplaint4"
+              id="opinion"
+              value={formData.opinion}
+              onChange={handleChange}
+              required
             />
           </div>
-          <div className="col-12">
-            <Link to="/complaints">
-              {" "}
-              <button className="btn btn-outline-light">
-                Submit Complaint
+          <div className="col-12 review-btn">
+            <button type="submit" className="btn btn-outline-light">
+              Submit Review
+            </button>
+            <Link to="/showreviews">
+              <button type="button" className="btn btn-outline-light">
+                View Reviews
               </button>
             </Link>
           </div>

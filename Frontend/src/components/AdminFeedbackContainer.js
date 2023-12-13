@@ -18,7 +18,7 @@ function AdminFeedbackContainer() {
           </div>
           <AdminSideBar />
         </div>
-        <div className="col col-md-9">
+        <div className="col col-md-9 admin-feedback-col">
           <AdminFeedback />
         </div>
       </div>

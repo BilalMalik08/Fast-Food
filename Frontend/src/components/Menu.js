@@ -6,7 +6,11 @@ function Menu() {
   return (
     <>
       <div className="row menu-row1">
-        <h1>Our Menu</h1>
+        <h1>
+          <ul>
+            <li>Our Menu</li>
+          </ul>
+        </h1>
       </div>
 
       <MenuCard />

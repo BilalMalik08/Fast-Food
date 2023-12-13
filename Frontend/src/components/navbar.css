@@ -35,3 +35,24 @@
 .admin-link {
     display: none;
 }
+
+
+
+@media only screen and (min-width: 481px) and (max-width: 820px) {
+    .navbar-row1 {
+        height: 0vh;
+    }
+
+    .d-flex {
+        display: flex !important;
+        margin-bottom: 20px;
+    }
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .d-flex {
+        display: flex !important;
+        margin-bottom: 20px;
+    }
+}

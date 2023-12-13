@@ -28,7 +28,7 @@ const EditFormModalSandwich = ({ show, handleClose, sandwich, onSave }) => {
   };
 
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} centered>
       <Modal.Header closeButton>
         <Modal.Title>Edit Sandwich</Modal.Title>
       </Modal.Header>

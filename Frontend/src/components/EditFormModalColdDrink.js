@@ -28,7 +28,7 @@ const EditFormModalColdDrink = ({ show, handleClose, coldDrink, onSave }) => {
   };
 
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} centered>
       <Modal.Header closeButton>
         <Modal.Title>Edit Cold Drink Item</Modal.Title>
       </Modal.Header>

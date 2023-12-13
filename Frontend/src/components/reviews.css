@@ -87,3 +87,8 @@
 .clients-cart-text {
     text-align: center;
 }
+
+.review-btn {
+    display: flex;
+    justify-content: space-around;
+}

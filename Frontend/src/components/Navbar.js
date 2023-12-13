@@ -54,15 +54,15 @@ function Navbar() {
                   </Link>
                 </li>
                 <li className="nav-item dropdown">
-                  <a
+                  <Link
                     className="nav-link dropdown-toggle"
-                    href="/menu"
+                    to="/menu"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Menu List
-                  </a>
+                  </Link>
                   <ul className="dropdown-menu">
                     <li>
                       <Link className="dropdown-item" to="/menu">

@@ -1,89 +1,57 @@
-import "./adminMenuComp.css";
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import EditCategoryModal from "./EditCategoryModal";
+import DeleteConfirmationModal from "./DeleteConfirmationModal"; // Import the new component
 
 function AdminMenuComp() {
-  const [menu, setMenu] = useState([
-    {
-      image: require("../Img/pizza.jpg"),
-      adminCategory: "Pizzas",
-      items: [
-        "Pepperoni Pizza",
-        "Veggie Pizza",
-        "Cheese Pizza",
-        "BBQ Chicken Pizza",
-      ],
-    },
-    {
-      image: require("../Img/burger.jpg"),
-      adminCategory: "Burgers",
-      items: ["Zinger Burger", "Chicken Burger", "BBQ Burger", "Crunch Burger"],
-    },
-    {
-      image: require("../Img/sandwich.jpg"),
-      adminCategory: "Sandwiches",
-      items: [
-        "Grilled Cheese Sandwich",
-        "Club Sandwich",
-        "Chicken Sandwich",
-        "Smoked Salmon Sandwich",
-      ],
-    },
-    {
-      image: require("../Img/chicken.jpg"),
-      adminCategory: "Chickens",
-      items: [
-        "Extra Crispy Chicken",
-        "Spicy Nuggets",
-        "Hot Shots",
-        "Hot Wings",
-      ],
-    },
-    {
-      image: require("../Img/chowmein.jpg"),
-      adminCategory: "Chowmeins",
-      items: [
-        "Chicken Chowmein",
-        "Beef Chowmein",
-        "Vegetable Chowmein",
-        "Special Chowmein",
-      ],
-    },
-    {
-      image: require("../Img/spup.jpg"),
-      adminCategory: "Soups",
-      items: [
-        "Chicken Corn Soup",
-        "Chicken Soup",
-        "Potato Soup",
-        "Hot n Sour Soup",
-      ],
-    },
-    {
-      image: require("../Img/icecream.jpg"),
-      adminCategory: "IceCreams",
-      items: [
-        "Vanilla Ice Cream",
-        "Chocolate Ice Cream",
-        "Strawberry Ice Cream",
-        "Pista Ice Cream",
-      ],
-    },
-    {
-      image: require("../Img/colddrinks.jpg"),
-      adminCategory: "ColdDrinks",
-      items: ["Mint Margarita", "Shakes", "Lemonade", "Regular Drinks"],
-    },
-    {
-      image: require("../Img/hotdrinks.jpg"),
-      adminCategory: "HotDrinks",
-      items: ["Vanilla Chai Latte", "Hot Chocolate", "Ginger Tea", "Green Tea"],
-    },
-  ]);
+  const [menu, setMenu] = useState([]);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+  const [categoryToDelete, setCategoryToDelete] = useState(null);
+
+  useEffect(() => {
+    const fetchMenu = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/menu");
+        setMenu(response.data);
+        console.log("Menu items:", response.data);
+      } catch (error) {
+        console.error("Error fetching menu:", error);
+      }
+    };
+
+    fetchMenu();
+  }, []);
 
   const deleteCategory = (category) => {
-    const updatedMenu = menu.filter((item) => item.adminCategory !== category);
-    setMenu(updatedMenu);
+    setCategoryToDelete(category);
+    setShowDeleteConfirmation(true);
+  };
+
+  const handleDeleteConfirm = async () => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:5000/menu/${categoryToDelete._id}`
+      );
+      console.log(response.data);
+      // Remove the deleted category from the state
+      setMenu((prevMenu) =>
+        prevMenu.filter((item) => item._id !== categoryToDelete._id)
+      );
+    } catch (error) {
+      console.error("Error deleting category:", error);
+    } finally {
+      // Close the confirmation modal
+      setShowDeleteConfirmation(false);
+      setCategoryToDelete(null);
+    }
+  };
+
+  const handleEditClick = (category) => {
+    setSelectedCategory(category);
+    setShowEditModal(true);
   };
 
   return (
@@ -91,49 +59,70 @@ function AdminMenuComp() {
       <div className="row menu-card-row1">
         <div className="container-fluid menu-card-container">
           <div className="row row-cols-1 row-cols-md-2 menu-card-row-cols g-4">
-            {menu.map((menu) => (
+            {menu.map((menuItem) => (
               <div
                 className="col menu-card-col admin-menu-card-col"
-                key={menu.adminCategory}
+                key={menuItem._id}
               >
                 <div className="card menu-card admin-menu-card">
                   <img
                     className="menu-card-img"
-                    src={menu.image}
-                    alt={menu.adminCategory}
+                    src={`http://localhost:5000/uploads/${menuItem.image}`}
+                    alt={menuItem.adminCategory}
                   />
+
                   <div className="card-body menu-card-body">
                     <div className="menu-card-title-container">
                       <h5 className="card-title menu-card-title">
-                        {menu.adminCategory}
+                        {menuItem.adminCategory}
                       </h5>
                     </div>
                     <div className="menu-card-text-container">
                       <p className="card-text menu-card-text">
-                        All ranges of {menu.adminCategory.toLowerCase()}{" "}
+                        All ranges of {menuItem.description.toLowerCase()}{" "}
                         available
                       </p>
+
                       <p className="card-text menu-card-text">
-                        {menu.items.join(", ")} and much more...
+                        {menuItem.items
+                          ? menuItem.items.split(", ").map((item, index) => (
+                              <span key={index}>
+                                {item}
+                                {index !==
+                                  menuItem.items.split(", ").length - 1 && ", "}
+                              </span>
+                            ))
+                          : "No items available"}{" "}
+                        and much more...
                       </p>
                     </div>
                     <div className="menu-card-btn-container">
                       <Link
-                        to={`/admin/menu/${menu.adminCategory
+                        to={`/admin/menu/${menuItem.adminCategory
                           .trim()
                           .toLowerCase()}`}
                       >
                         <button
                           className="btn btn-outline-dark menu-card-btn admin-menu-card-btn"
                           type="submit"
+                          style={{ margin: "18px 5px" }} // Add inline margin style
                         >
                           Edit Menu
                         </button>
                       </Link>
                       <button
+                        className="btn btn-outline-dark menu-card-btn"
+                        type="button"
+                        onClick={() => handleEditClick(menuItem)}
+                        style={{ margin: "5px" }} // Add inline margin style
+                      >
+                        Edit Category
+                      </button>
+                      <button
                         className="btn btn-outline-danger menu-card-btn"
                         type="button"
-                        onClick={() => deleteCategory(menu.adminCategory)}
+                        onClick={() => deleteCategory(menuItem)}
+                        style={{ margin: "5px" }} // Add inline margin style
                       >
                         Delete Category
                       </button>
@@ -145,6 +134,20 @@ function AdminMenuComp() {
           </div>
         </div>
       </div>
+
+      {selectedCategory && (
+        <EditCategoryModal
+          show={showEditModal}
+          handleClose={() => setShowEditModal(false)}
+          categoryData={selectedCategory}
+        />
+      )}
+
+      <DeleteConfirmationModal
+        show={showDeleteConfirmation}
+        handleClose={() => setShowDeleteConfirmation(false)}
+        handleConfirm={handleDeleteConfirm}
+      />
     </>
   );
 }
