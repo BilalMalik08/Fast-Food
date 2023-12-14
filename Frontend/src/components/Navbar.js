@@ -1,14 +1,29 @@
 import "./navbar.css";
 import FastFoodLogo from "../Img/FastFoodLogo.png";
+import mypic from "../Img/img.png";
 import { Link } from "react-router-dom";
 import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "./CartState";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Navbar() {
   const { cartItems, updateCartItem } = useContext(CartContext);
   const [cartCount, setCartCount] = useState(0);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const allowedRoutes = [
+    "/dashboard",
+    "/adminmenu",
+    "/orders",
+    "/customers",
+    "/settings",
+    "/feedbacks",
+  ];
+  const isDashboardRoute = allowedRoutes.includes(location.pathname);
+  const navbarClass = isDashboardRoute ? "white-navbar" : "black-navbar";
 
   // Update cartCount whenever cartItems change
   useEffect(() => {
@@ -17,8 +32,8 @@ function Navbar() {
 
   return (
     <>
-      <div className="row navbar-row1">
-        <nav className="navbar navbar-expand-lg">
+      <div className={`row navbar-row1 ${navbarClass}`}>
+        <nav className={`navbar navbar-expand-lg ${navbarClass}`}>
           <div className="container-fluid">
             <Link className="navbar-brand" to="/home">
               <img className="logo" src={FastFoodLogo} alt="" />
@@ -55,7 +70,9 @@ function Navbar() {
                 </li>
                 <li className="nav-item dropdown">
                   <Link
-                    className="nav-link dropdown-toggle"
+                    className={`nav-link dropdown-toggle ${
+                      isDashboardRoute ? "text-dark" : "text-white"
+                    }`}
                     to="/menu"
                     role="button"
                     data-bs-toggle="dropdown"
@@ -63,7 +80,11 @@ function Navbar() {
                   >
                     Menu List
                   </Link>
-                  <ul className="dropdown-menu">
+                  <ul
+                    className={`dropdown-menu ${
+                      isDashboardRoute ? "black-text" : ""
+                    }`}
+                  >
                     <li>
                       <Link className="dropdown-item" to="/menu">
                         Menu
@@ -86,13 +107,11 @@ function Navbar() {
                       </Link>
                     </li>
                     <li>
-                      <li>
-                        <Link className="dropdown-item" to="/chickenmenu">
-                          Fried Chicken Menu
-                        </Link>
-                      </li>
-                      <hr className="dropdown-divider" />
+                      <Link className="dropdown-item" to="/chickenmenu">
+                        Fried Chicken Menu
+                      </Link>
                     </li>
+                    <hr className="dropdown-divider" />
                     <li>
                       <Link className="dropdown-item" to="/soupmenu">
                         Soups Menu
@@ -144,17 +163,65 @@ function Navbar() {
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <button className="btn btn-outline-light" type="submit">
+                <button
+                  className={`btn ${
+                    isDashboardRoute ? "btn-outline-dark" : "btn-outline-light"
+                  }`}
+                  type="submit"
+                >
                   Search
                 </button>
               </form>
-              <Link to="/cart" className="shopping-cart position-relative">
-                <FontAwesomeIcon icon={faCartShopping} />
-                <span className="position-absolute top-0 start-100 translate-middle badge cart-badge rounded-pill bg-danger">
-                  {cartCount}
-                  <span className="visually-hidden">Cart Items</span>
-                </span>
-              </Link>
+              {isDashboardRoute ? (
+                <div className="dropdown ms-2">
+                  <button
+                    className={`btn btn-outline-dark dropdown-toggle ${
+                      isDashboardRoute ? "" : "text-white"
+                    }`}
+                    type="button"
+                    id="loginDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src={mypic}
+                      alt="Muhammad Bilal"
+                      className="img-fluid"
+                      style={{
+                        width: "50px",
+                        height: "25px",
+                        borderRadius: "50%",
+                        marginRight: "5px",
+                      }}
+                    />
+                    Muhammad Bilal
+                  </button>
+                  <ul
+                    className={`dropdown-menu dropdown-menu-admin ${
+                      isDashboardRoute ? "black-text white-bg" : ""
+                    }`}
+                    aria-labelledby="loginDropdown"
+                    style={{
+                      width: "calc(100% + 2px)",
+                      marginLeft: "-1px",
+                    }}
+                  >
+                    <li>
+                      <Link className="dropdown-item" to="/logout">
+                        Logout
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <Link to="/cart" className="shopping-cart position-relative">
+                  <FontAwesomeIcon icon={faCartShopping} />
+                  <span className="position-absolute top-0 start-100 translate-middle badge cart-badge rounded-pill bg-danger">
+                    {cartCount}
+                    <span className="visually-hidden">Cart Items</span>
+                  </span>
+                </Link>
+              )}
             </div>
           </div>
         </nav>

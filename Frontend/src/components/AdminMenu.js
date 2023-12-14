@@ -31,7 +31,6 @@ function AdminMenu() {
         <AdminMenuComp />
       </div>
 
-      {/* Add Category Modal */}
       <AddCategoryModal
         show={showAddCategoryModal}
         handleClose={handleAddCategoryClose}

@@ -8,6 +8,11 @@
     background-color: white;
 }
 
+.admin-row1 .col-md-2 {
+    padding: 0;
+    background-color: rgb(240 240 240);
+}
+
 
 .admin-row3 {
     height: 7vh;
@@ -22,3 +27,19 @@
 .admin-feedback-col {
     padding: 0;
 }
+
+.admin-row3-white {
+    height: 7vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: white;
+    cursor: default;
+
+}
+
+/* .admin-col-10 {
+    background-color: rgb(224 221 221);
+} */

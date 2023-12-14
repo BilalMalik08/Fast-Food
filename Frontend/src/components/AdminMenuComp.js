@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import EditCategoryModal from "./EditCategoryModal";
-import DeleteConfirmationModal from "./DeleteConfirmationModal"; // Import the new component
+import DeleteConfirmationModal from "./DeleteConfirmationModal";
 
 function AdminMenuComp() {
   const [menu, setMenu] = useState([]);
@@ -56,7 +56,7 @@ function AdminMenuComp() {
 
   return (
     <>
-      <div className="row menu-card-row1">
+      <div className="row menu-card-row">
         <div className="container-fluid menu-card-container">
           <div className="row row-cols-1 row-cols-md-2 menu-card-row-cols g-4">
             {menu.map((menuItem) => (

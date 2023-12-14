@@ -1,8 +1,10 @@
 #menu-toggle {
     position: absolute;
-    top: 10px;
+    top: 20px;
     left: 10px;
     z-index: 1000;
+    color: white;
+    background-color: black;
 }
 
 #wrapper.toggled #sidebar {
@@ -22,10 +24,7 @@
     width: 75%;
 }
 
-.col-md-2 {
-    padding: 0;
-    background-color: black;
-}
+
 
 .adminSidebar-icons {
     margin: 0px 15px;
@@ -39,9 +38,9 @@
 }
 
 .admin-side-bar {
-    background-color: black;
-    height: 83vh;
-    width: 16.5vw;
+    background-color: white;
+    height: 90vh;
+    width: 16vw;
     padding: 0px 0px;
     border-radius: 0;
     transition: margin-left 0.5s ease-in-out;

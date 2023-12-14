@@ -1,13 +1,17 @@
+import React from "react";
+import { useLocation } from "react-router-dom";
 import "./admin.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-// import adminImg from "../Img/admin.png";
-// import AdminSideBar from "./AdminSideBar";
-// import AdminDashboard from "./AdminDashboard";
 import AdminSideBar2 from "./AdminSideBar2";
 import AdminDashboard2 from "./AdminDashboard2";
 import Footer from "./Footer";
 
 function AdminDashboardContainer() {
+  const location = useLocation();
+  const isAdminDashboardPage = location.pathname === "/dashboard";
+  const adminRow3Class = isAdminDashboardPage
+    ? "admin-row3-white"
+    : "admin-row3";
+
   return (
     <>
       <div className="row admin-row1">
@@ -18,7 +22,7 @@ function AdminDashboardContainer() {
           <AdminDashboard2 />
         </div>
       </div>
-      <div className="row admin-row3">
+      <div className={`row ${adminRow3Class}`}>
         <Footer />
       </div>
     </>

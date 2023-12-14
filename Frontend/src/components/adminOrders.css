@@ -1,6 +1,10 @@
-.adminCustomers-row1 {
+.adminOrders-row1 {
     height: 83vh;
     overflow-y: scroll;
+}
+
+.adminOrders-row1::-webkit-scrollbar {
+    display: none;
 }
 
 table {

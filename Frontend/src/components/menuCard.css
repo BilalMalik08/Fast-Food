@@ -9,7 +9,7 @@
 }
 
 .menu-card-row-cols {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     display: flex;
     justify-content: center;
     align-items: center;

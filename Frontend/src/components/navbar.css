@@ -37,6 +37,33 @@
 }
 
 
+.black-navbar {
+    background-color: black;
+}
+
+.white-navbar {
+    background-color: white;
+}
+
+.white-navbar .nav-link {
+    color: black;
+}
+
+.white-navbar .admin-link {
+    color: black;
+}
+
+.white-navbar .shopping-cart {
+    color: black;
+}
+
+.dropdown-menu-admin {
+    /* margin-left: -130px; */
+}
+
+
+
+
 
 @media only screen and (min-width: 481px) and (max-width: 820px) {
     .navbar-row1 {

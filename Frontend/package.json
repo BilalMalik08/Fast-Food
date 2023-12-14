@@ -19,6 +19,7 @@
     "react-bootstrap": "^2.9.1",
     "react-calendar": "^4.7.0",
     "react-chartjs-2": "^5.2.0",
+    "react-clock": "^4.6.0",
     "react-dom": "^18.2.0",
     "react-player": "^2.13.0",
     "react-router-dom": "^6.17.0",

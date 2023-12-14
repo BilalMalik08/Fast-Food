@@ -1,6 +1,6 @@
-/* .adminDashboard-row1 {
+.adminDashboard-row1 {
     height: 83vh;
-    background: url("../Img//dashboardBg.jpg") no-repeat center center/cover;
+    background-color: rgb(224 221 221);
 }
 
 .adminDashboard-row2 {
@@ -15,7 +15,7 @@
     height: 30vh;
 }
 
-.card {
+.adminDashboard-cards {
     background-color: white;
     text-align: center;
     margin: 10px;
@@ -29,7 +29,7 @@
     margin-top: 5px;
 }
 
-.card-text {
+.adminDashboard-cards-text {
     font-size: 1.2rem;
     margin-top: 10px;
     color: black;
@@ -49,4 +49,4 @@
     display: flex;
     height: 0px;
     margin-bottom: 1em;
-} */
+}
