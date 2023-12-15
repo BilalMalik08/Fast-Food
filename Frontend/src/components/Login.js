@@ -1,7 +1,6 @@
 import "./login.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBurger } from "@fortawesome/free-solid-svg-icons";
 import ThankYou from "./ThankYou";
@@ -27,6 +26,26 @@ function Login() {
     setUserFormData({ ...userFormData, [name]: value.toLowerCase() });
   };
 
+  const handleSignup = async (userData) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/auth/signup",
+        userData
+      );
+
+      if (response.status === 201) {
+        console.log("User registered successfully:", response.data);
+        // You may want to do something after successful registration, e.g., show a success message
+      } else {
+        console.error("Registration failed:", response.data);
+      }
+    } catch (error) {
+      console.error("Error during registration:", error);
+    } finally {
+      setShowSignupModal(false);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = userFormData;
@@ -39,33 +58,20 @@ function Login() {
 
       if (response.status === 200) {
         const data = response.data;
-        // Successful login, you can handle the data as needed
         console.log("Login successful:", data);
         setLoading(true);
         setTimeout(() => {
           setLoading(false);
           setLoggedIn(true);
-          // Redirect to the ThankYou page or any other page
           window.history.pushState(null, "", "/thankyou");
         }, 3000);
       } else {
-        // Handle error response from the server
         console.error("Login failed:", response.data);
         setShowInvalidCredentialsAlert(true);
       }
     } catch (error) {
       console.error("Error during login:", error);
-      // Handle other errors (network issues, etc.)
     }
-  };
-
-  const handleSignup = async (userData) => {
-    // Add your signup logic here using the userData
-    // For example, make an API call to register the user
-    console.log("Signup data:", userData);
-
-    // Close the signup modal
-    setShowSignupModal(false);
   };
 
   useEffect(() => {
@@ -121,15 +127,13 @@ function Login() {
                   <button className="LoginForm-btn form-btn" type="submit">
                     Log In
                   </button>
-                  <Link to="/signup">
-                    <button
-                      className="LoginForm-btn form-btn"
-                      type="submit"
-                      onClick={() => setShowSignupModal(true)}
-                    >
-                      Sign Up
-                    </button>
-                  </Link>
+                  <button
+                    className="LoginForm-btn form-btn"
+                    type="button"
+                    onClick={() => setShowSignupModal(true)}
+                  >
+                    Sign Up
+                  </button>
                 </div>
                 <div className="container signup-msg-container">
                   {" "}

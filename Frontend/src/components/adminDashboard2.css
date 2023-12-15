@@ -3,6 +3,10 @@
     background-color: rgb(224 221 221);
 }
 
+.adminDashboard-row1::-webkit-scrollbar {
+    display: none;
+}
+
 .adminDashboard-row2 {
     height: 23vh;
 }

@@ -175,7 +175,7 @@ function Navbar() {
               {isDashboardRoute ? (
                 <div className="dropdown ms-2">
                   <button
-                    className={`btn btn-outline-dark dropdown-toggle ${
+                    className={`btn btn-outline-dark dropdown-toggle dropdown-toggle-admin ${
                       isDashboardRoute ? "" : "text-white"
                     }`}
                     type="button"

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import axios from "axios";
 
-const SignupModal = ({ show, handleClose, handleSignup }) => {
+const SignupModal = ({ show, handleClose }) => {
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -15,28 +15,42 @@ const SignupModal = ({ show, handleClose, handleSignup }) => {
     setUserData({ ...userData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
 
     try {
-      // Make an API call to register the user
       const response = await axios.post(
-        "http://localhost:5000/auth/register",
+        "http://localhost:5000/auth/signup",
         userData
       );
 
-      if (response.status === 201) {
+      if (response && response.status === 201) {
         const data = response.data;
-        // Successful registration, you can handle the data as needed
         console.log("Registration successful:", data);
-        handleSignup(data.token, data.user);
-        handleClose(); // Close the modal
+        if (data && data.user) {
+          handleClose();
+          // Reset the userData state to clear the form
+          setUserData({
+            name: "",
+            email: "",
+            contact: "",
+            password: "",
+          });
+        } else {
+          console.error("Invalid response format:", response);
+        }
       } else {
-        // Handle error response from the server
-        console.error("Registration failed:", response.data);
+        console.error("Registration failed:", response);
       }
     } catch (error) {
-      console.error("Error during registration:", error);
+      if (error.response && error.response.status === 400) {
+        console.error("Registration failed:", error.response.data.message);
+      } else {
+        console.error(
+          "Error during registration:",
+          error.response?.data || error.message
+        );
+      }
     }
   };
 
@@ -46,7 +60,7 @@ const SignupModal = ({ show, handleClose, handleSignup }) => {
         <Modal.Title>Sign Up</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSignup}>
           <Form.Group controlId="formName">
             <Form.Label>Name</Form.Label>
             <Form.Control
