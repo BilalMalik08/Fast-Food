@@ -1,37 +1,55 @@
-.container {
+.about-left-container {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 15px;
 }
 
-.card {
+.about-card {
     background: transparent;
 }
 
-.card-body {
+.about-card-body {
     font-weight: bolder;
     color: white;
 }
 
-.card-title {
-    text-align: center;
-
+.about-left-card-title {
+    text-align: left;
+    cursor: default;
 }
 
-.card-text {
-    text-align: justify;
+.about-left-card-text {
+    text-align: left;
+    font-size: 14.5px;
+    cursor: default;
 }
+
 
 .card-img-top {
     height: 45vh;
     border-radius: 15px;
 }
 
-.about-card-title {
-    cursor: default;
+
+
+@media only screen and (min-width: 481px) and (max-width: 820px) {
+    .about-left-container {
+        height: 100vh;
+        display: unset;
+        padding: unset;
+    }
+
+    .about-card {
+        height: 70vh;
+    }
 }
 
-.about-card-text {
-    cursor: default;
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .about-left-container {
+        height: 125vh;
+        display: unset;
+        padding: unset;
+    }
 }

@@ -73,7 +73,7 @@ function Cart() {
                     />
                   </div>
                   <div className="col-md-8">
-                    <div className="card-body">
+                    <div className="card-body cart-card-body">
                       <h5 className="card-title cart-card-title">
                         {item.name}
                       </h5>
@@ -94,10 +94,10 @@ function Cart() {
                       </p>
                       <div className="button-select-quantity">
                         <button
-                          className="btn btn-outline-danger menu-card-btn"
+                          className="btn btn-outline-danger"
                           onClick={() => removeFromCart(item.id)} // Call removeFromCart with item ID
                         >
-                          Remove from cart
+                          Remove
                         </button>
                         <select
                           name="size"

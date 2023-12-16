@@ -76,6 +76,8 @@
     border: 3px solid white;
     margin-bottom: 5px;
     margin-left: 20px;
+    color: white;
+    background: transparent;
 }
 
 .pay-card-title {
@@ -86,6 +88,8 @@
     border: 3px solid white;
     margin-top: 5px;
     margin-left: 20px;
+    color: white;
+    background: transparent;
 }
 
 .coupon-card-body {
@@ -115,4 +119,33 @@
 
 .coupon-btn {
     margin-top: 10px;
+}
+
+
+
+
+
+@media only screen and (min-width: 481px) and (max-width: 820px) {
+    .cart-row2 {
+        height: 140vh;
+        padding-bottom: 0px;
+    }
+
+    .cart-row2 .col {
+        flex: unset;
+        width: 100%;
+    }
+
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .cart-row2 {
+        height: 140vh;
+        padding-bottom: 0px;
+    }
+
+    .cart-row2 .col {
+        flex: unset;
+    }
 }

@@ -20,10 +20,10 @@ function Home() {
       </div>
 
       <div className="row home-row2">
-        <div className="col col-md-6">
+        <div className="col col-md-6 mission-left-img-col">
           <MissionLeft />
         </div>
-        <div className="col col-md-6">
+        <div className="col col-md-6 mission-right-text-col">
           <MissionRight />
         </div>
       </div>

@@ -103,7 +103,7 @@ function AdminMenuComp() {
                           .toLowerCase()}`}
                       >
                         <button
-                          className="btn btn-outline-dark menu-card-btn admin-menu-card-btn"
+                          className="btn btn-outline-light menu-card-btn admin-menu-card-btn"
                           type="submit"
                           style={{ margin: "18px 5px" }} // Add inline margin style
                         >
@@ -111,7 +111,7 @@ function AdminMenuComp() {
                         </button>
                       </Link>
                       <button
-                        className="btn btn-outline-dark menu-card-btn"
+                        className="btn btn-outline-light menu-card-btn"
                         type="button"
                         onClick={() => handleEditClick(menuItem)}
                         style={{ margin: "5px" }} // Add inline margin style

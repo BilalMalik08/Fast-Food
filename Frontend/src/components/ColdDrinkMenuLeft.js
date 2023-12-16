@@ -171,10 +171,7 @@ function ColdDrinkMenuLeft() {
                     PKR
                   </p>
                   <div className="button-select-quantity">
-                    <button
-                      className="btn btn-outline-light menu-card-btn"
-                      type="submit"
-                    >
+                    <button className="btn btn-outline-light" type="submit">
                       Add to Cart
                     </button>
                     <select

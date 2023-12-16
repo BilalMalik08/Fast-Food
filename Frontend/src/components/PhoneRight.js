@@ -17,12 +17,18 @@ function PhoneRight() {
       <div className="container phoneRight-container">
         <div className="phoneRight">
           <h3 className="download-heading">Download our mobile app.</h3>
-          <img className="download-app" src={play} alt="" />
-          <img className="download-app" src={app} alt="" />
+          <div className="download-app-img">
+            {" "}
+            <img className="download-app" src={play} alt="" />
+            <img className="download-app" src={app} alt="" />
+          </div>
           <h3 className="download-heading">Secure payment gateways.</h3>
-          <img className="download-app" src={pay} alt="" />
+          <div className="pay-img">
+            {" "}
+            <img className="download-app" src={pay} alt="" />
+          </div>
           <div class="follow">
-            <h3 className="download-heading">
+            <h3 className="follow-heading">
               Follow us
               <div class="icons-container">
                 <FontAwesomeIcon

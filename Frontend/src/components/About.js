@@ -12,7 +12,7 @@ import PhoneRight from "./PhoneRight";
 function About() {
   return (
     <>
-      <div className="container">
+      <div className="container about-row1-container">
         <div className="row about-row1">
           <div className="col col-md-5">
             <AboutLeft />
@@ -26,7 +26,7 @@ function About() {
         </div>
       </div>
 
-      <div className="container">
+      <div className="container about-row2-container">
         <div className="row about-row2">
           <div className="col col-md-5">
             <ChefLeft />

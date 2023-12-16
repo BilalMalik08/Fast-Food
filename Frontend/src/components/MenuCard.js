@@ -61,7 +61,7 @@ function MenuCard() {
                         to={`/menu/${menuItem.adminCategory
                           .trim()
                           .toLowerCase()}`}
-                        className="btn btn-outline-dark menu-card-btn"
+                        className="btn btn-outline-light menu-card-btn"
                       >
                         View Menu
                       </Link>

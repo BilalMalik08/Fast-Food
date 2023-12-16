@@ -2,11 +2,18 @@
     height: 80vh;
 }
 
+.mission-right-card {
+    color: white;
+    background: transparent;
+}
+
 .mission-right-card-title {
+    text-align: right;
     cursor: default;
 }
 
 .mission-right-card-text {
+    text-align: right;
     cursor: default;
 }
 
@@ -20,10 +27,6 @@
         align-items: flex-end;
         padding: 15px;
         height: 60vh;
-    }
-
-    .mission-right-card-body {
-        display: contents;
     }
 
     .mission-right-card-text {

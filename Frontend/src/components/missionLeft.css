@@ -2,6 +2,10 @@
     height: 80vh;
 }
 
+.mission-left-card {
+    background: transparent;
+}
+
 .mission-left-img {
     transition: 1s ease-in-out;
 }
@@ -42,11 +46,12 @@
     }
 
     .mission-left-card-body .mission-left-img {
-        height: 20vh;
+        height: 40vh;
+        width: 85vw;
     }
 
     .mission-left-card-body .mission-left-img:hover {
-        height: 250px;
-        width: 300px;
+        height: 40vh;
+        width: 85vw;
     }
 }

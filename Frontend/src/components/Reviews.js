@@ -21,7 +21,7 @@ function Reviews() {
       <div className="row reviews-row3">
         <ClientReviews />
       </div>
-      <div className="row reviews-row2">
+      <div className="row reviews-row4">
         <Footer />
       </div>
     </>

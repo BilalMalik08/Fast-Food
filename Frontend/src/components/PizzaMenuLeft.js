@@ -228,7 +228,7 @@ function PizzaMenuLeft() {
                   </p>
                   <div className="button-select-quantity">
                     <button
-                      className="btn btn-outline-light menu-card-btn"
+                      className="btn btn-outline-light"
                       onClick={() => handleAddToCart(pizza)}
                     >
                       Add to Cart

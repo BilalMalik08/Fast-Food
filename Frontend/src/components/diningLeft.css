@@ -2,11 +2,18 @@
     height: 100vh;
 }
 
+.dining-left-card {
+    color: white;
+    background: transparent;
+}
+
 .dining-left-card-title {
+    text-align: left;
     cursor: default;
 }
 
 .dining-left-card-text {
+    text-align: left;
     cursor: default;
 }
 
@@ -40,10 +47,6 @@
         align-items: flex-end;
         padding: 15px;
         height: 100vh;
-    }
-
-    .dining-left-card-body {
-        display: contents;
     }
 
     .dining-left-card-text {

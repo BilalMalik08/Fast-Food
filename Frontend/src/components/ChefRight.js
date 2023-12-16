@@ -4,25 +4,25 @@ import chef2 from "../Img/chef2.jpg";
 function ChefRight() {
   return (
     <>
-      <div className="container">
-        <div className="card">
+      <div className="container chef-right-container">
+        <div className="card chef-card chef-right-card">
           <img src={chef2} className="card-img-top" alt="..." />
-          <div className="card-body">
-            <h1 className="card-title chef-card-title mb-4">Our Chefs</h1>
-            <p className="card-text chef-card-text">
+          <div className="card-body chef-card-body">
+            <h1 className="card-title chef-right-card-title mb-4">Our Chefs</h1>
+            <p className="card-text chef-right-card-text">
               Our chefs are genius, crafting exquisite dishes that delight your
               taste buds and leave you wanting more.
             </p>
-            <p className="card-text chef-card-text">
+            <p className="card-text chef-right-card-text">
               Our chefs sources only the freshest and finest local ingredients,
               ensuring each dish bursts with flavor and quality.
             </p>
-            <p className="card-text chef-card-text">
+            <p className="card-text chef-right-card-text">
               Enjoy a personalized dining experience as our chefs are always
               willing to cater to your dietary preferences, creating bespoke
               dishes tailored just for you.
             </p>
-            <p className="card-text chef-card-text">
+            <p className="card-text chef-right-card-text">
               Taste the magic behind our award-winning dishes, prepared with
               love and skill by our exceptional chefs, who has received
               accolades for their culinary expertise.
