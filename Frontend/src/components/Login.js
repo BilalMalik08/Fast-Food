@@ -44,7 +44,7 @@ function Login() {
   const handleSignup = async (userData) => {
     try {
       const response = await axios.post(
-        "https://fast-food-fl77.vercel.app/auth/signup",
+        "http://localhost:5000/auth/signup",
         userData
       );
 
@@ -66,13 +66,10 @@ function Login() {
     const { email, password } = userFormData;
 
     try {
-      const response = await axios.post(
-        "https://fast-food-fl77.vercel.app/auth/login",
-        {
-          email,
-          password,
-        }
-      );
+      const response = await axios.post("http://localhost:5000/auth/login", {
+        email,
+        password,
+      });
 
       if (response.status === 200) {
         const data = response.data;

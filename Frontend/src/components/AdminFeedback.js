@@ -15,9 +15,7 @@ function ShowReviews() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get(
-          "https://fast-food-fl77.vercel.app/review"
-        );
+        const response = await axios.get("/review");
         setReviews(response.data);
       } catch (error) {
         console.error("Error fetching reviews", error.message, error.response);

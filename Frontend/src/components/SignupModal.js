@@ -28,7 +28,7 @@ const SignupModal = ({ show, handleClose }) => {
 
     try {
       const response = await axios.post(
-        "https://fast-food-fl77.vercel.app/auth/signup",
+        "http://localhost:5000/auth/signup",
         userData
       );
 

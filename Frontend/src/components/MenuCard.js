@@ -29,7 +29,7 @@ function MenuCard() {
                 <div className="card menu-card">
                   <img
                     className="menu-card-img"
-                    src={`https://fast-food-fl77.vercel.app/uploads/${menuItem.image}`}
+                    src={`http://localhost:5000/uploads/${menuItem.image}`}
                     alt={menuItem.adminCategory}
                   />
                   <div className="card-body menu-card-body">
