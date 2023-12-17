@@ -70,6 +70,59 @@
 
 
 
+.dropdown-menu-user[data-bs-popper] {
+    top: 100%;
+    left: 88%;
+    margin-top: var(--bs-dropdown-spacer);
+    width: 11%;
+}
+
+
+.dropdown-menu-user a {
+    color: black;
+}
+
+.dropdown-menu-user a:hover {
+    background-color: #333;
+}
+
+
+.white-navbar .dropdown-menu,
+.white-navbar .dropdown-menu-admin {
+    background-color: black;
+    color: white;
+}
+
+.white-navbar .dropdown-menu a,
+.white-navbar .dropdown-menu-admin a {
+    color: white;
+}
+
+.white-navbar .dropdown-menu a:hover,
+.white-navbar .dropdown-menu-admin a:hover {
+    background-color: #dad2d2;
+}
+
+.black-navbar .dropdown-menu,
+.black-navbar .dropdown-menu-admin {
+    background-color: white;
+    color: black;
+}
+
+.black-navbar .dropdown-menu a,
+.black-navbar .dropdown-menu-admin a {
+    color: black;
+}
+
+.black-navbar .dropdown-menu a:hover,
+.black-navbar .dropdown-menu-admin a:hover {
+    background-color: #dad2d2;
+}
+
+
+.admin-link {
+    display: none;
+}
 
 
 @media only screen and (min-width: 481px) and (max-width: 820px) {

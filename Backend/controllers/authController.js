@@ -11,10 +11,20 @@ const generateToken = (userId) => {
   return token;
 };
 
+const validateEmailFormat = (email) => {
+  // Regular expression for a simple email format validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
 export const signup = async (req, res) => {
   try {
-    // Extract user data from the request body
-    const { name, email, contact, password } = req.body;
+    const { firstName, lastName, email, contact, password } = req.body;
+
+    // Check if the email is in a valid format
+    if (!validateEmailFormat(email)) {
+      return res.status(400).json({ message: "Invalid email format" });
+    }
 
     // Check if the email already exists
     const existingUser = await UserModel.findOne({ email });
@@ -22,17 +32,22 @@ export const signup = async (req, res) => {
       return res.status(400).json({ message: "Email address already exists" });
     }
 
-    // Create a new user
-    const newUser = new UserModel({ name, email, contact, password });
+    // If the email doesn't exist and has a valid format, proceed with user creation
+    const newUser = new UserModel({
+      firstName,
+      lastName,
+      email,
+      contact,
+      password,
+    });
     await newUser.save();
 
-    // Generate a token for the new user
     const token = generateToken(newUser._id);
 
-    // Return the user and token in the response
     res.status(201).json({ user: newUser, token });
   } catch (error) {
     console.error("Error during registration:", error);
+    console.error("Detailed error:", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
@@ -41,27 +56,36 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Check if the user exists
     const user = await UserModel.findOne({ email });
 
     if (!user) {
-      return res.status(401).json({ message: "Invalid credentials" });
+      return res
+        .status(401)
+        .json({ message: "Invalid credentials: User not found" });
     }
 
-    // Compare the provided password with the hashed password in the database
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
-      return res.status(401).json({ message: "Invalid credentials" });
+      return res
+        .status(401)
+        .json({ message: "Invalid credentials: Incorrect password" });
     }
 
-    // Generate a token for the authenticated user
     const token = generateToken(user._id);
 
-    // Respond with user data and token
-    res.status(200).json({ user, token });
+    // Include the user's first name in the response
+    res.status(200).json({ user: { firstName: user.firstName }, token });
   } catch (error) {
     console.error("Error during login:", error);
-    res.status(500).json({ message: "Internal Server Error" });
+
+    if (error.message.includes("Invalid credentials")) {
+      res.status(401).json({
+        message:
+          "Invalid credentials: The email or password you entered is incorrect",
+      });
+    } else {
+      res.status(500).json({ message: "Internal Server Error" });
+    }
   }
 };

@@ -7,10 +7,14 @@ import { CartContext } from "./CartState";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useUser } from "./UserContext";
+import axios from "axios";
 
 function Navbar() {
+  const { userFirstName } = useUser();
   const { cartItems, updateCartItem } = useContext(CartContext);
   const [cartCount, setCartCount] = useState(0);
+  const [usertName, setUserName] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -24,11 +28,36 @@ function Navbar() {
   ];
   const isDashboardRoute = allowedRoutes.includes(location.pathname);
   const navbarClass = isDashboardRoute ? "white-navbar" : "black-navbar";
+  const navLinkClass = isDashboardRoute ? "text-dark" : "text-white";
+  const adminLinkClass = isDashboardRoute ? "" : "text-white";
+  const isUserLoggedIn = true;
+  const isAdminLoggedIn = true;
+
+  const fetchUserInfo = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/auth/userinfo", {
+        withCredentials: true,
+      });
+
+      if (response.status === 200) {
+        setUserName(response.data.firstName);
+      }
+    } catch (error) {
+      console.error("Error fetching user information:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserInfo();
+  }, []);
 
   // Update cartCount whenever cartItems change
   useEffect(() => {
     setCartCount(cartItems.length);
   }, [cartItems]);
+
+  // User Dropdown (when route is not allowed)
+  const showUserDropdown = !isDashboardRoute;
 
   return (
     <>
@@ -82,7 +111,7 @@ function Navbar() {
                   </Link>
                   <ul
                     className={`dropdown-menu ${
-                      isDashboardRoute ? "black-text" : ""
+                      isDashboardRoute ? "black-text white-bg" : ""
                     }`}
                   >
                     <li>
@@ -172,6 +201,42 @@ function Navbar() {
                   Search
                 </button>
               </form>
+              {showUserDropdown && (
+                <div className="ms-2">
+                  <button
+                    className={`btn btn-outline-secondary user-dropdown-btn ${
+                      isDashboardRoute ? "" : "text-white"
+                    }`}
+                    type="button"
+                    id="userDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    {isUserLoggedIn ? userFirstName || "User" : "Login"}
+                    {isUserLoggedIn && <span className="ms-1"></span>}
+                  </button>
+                  <ul
+                    className={`dropdown-menu dropdown-menu-user ${
+                      isDashboardRoute ? "black-text white-bg" : ""
+                    }`}
+                    aria-labelledby="userDropdown"
+                    style={{
+                      position: "absolute",
+                      right: "0",
+                      top: "100%",
+                    }}
+                  >
+                    <li>
+                      <Link
+                        className="dropdown-item"
+                        to={isUserLoggedIn ? "/logout" : "/login"}
+                      >
+                        {isUserLoggedIn ? "Logout" : "Login"}
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
               {isDashboardRoute ? (
                 <div className="dropdown ms-2">
                   <button
@@ -194,7 +259,7 @@ function Navbar() {
                         marginRight: "5px",
                       }}
                     />
-                    Muhammad Bilal
+                    {isAdminLoggedIn ? "Muhammad Bilal" : "Login"}
                   </button>
                   <ul
                     className={`dropdown-menu dropdown-menu-admin ${
@@ -207,8 +272,11 @@ function Navbar() {
                     }}
                   >
                     <li>
-                      <Link className="dropdown-item" to="/logout">
-                        Logout
+                      <Link
+                        className="dropdown-item"
+                        to={isAdminLoggedIn ? "/logout" : "/adminlogin"}
+                      >
+                        {isAdminLoggedIn ? "Logout" : "Login"}
                       </Link>
                     </li>
                   </ul>

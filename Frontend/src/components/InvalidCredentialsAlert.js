@@ -1,6 +1,6 @@
 import React from "react";
 import Alert from "react-bootstrap/Alert";
-import "./invalidCredentialsAlert.css"; // Import custom CSS for styling
+import "./invalidCredentialsAlert.css";
 
 function InvalidCredentialsAlert({ onClose }) {
   return (
