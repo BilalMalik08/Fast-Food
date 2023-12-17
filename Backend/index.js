@@ -19,7 +19,7 @@ dotenv.config();
 // Middleware setup
 app.use(
   cors({
-    origin: ["https://fast-food-ck2c.vercel.app/"],
+    origin: ["https://fast-food-ck2c.vercel.app"],
     methods: "[POST, GET, PUT, DELETE]",
     credentials: true,
   })
