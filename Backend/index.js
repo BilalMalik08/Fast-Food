@@ -17,7 +17,13 @@ const port = 5000;
 dotenv.config();
 
 // Middleware setup
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(
+  cors({
+    origin: ["http://deploy-mern-1whq.vercel.app"],
+    methods: "[POST, GET, PUT, DELETE]",
+    credentials: true,
+  })
+);
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
