@@ -52,6 +52,11 @@ app.use("/menu", menuRoutes);
 app.use("/review", reviewRoutes);
 app.use("/uploads", express.static("uploads"));
 
+// Sample GET route
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
+
 // Server setup
 app.listen(port, () => {
   console.log("App is running on port: " + port);
