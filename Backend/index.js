@@ -17,9 +17,9 @@ const port = process.env.PORT || 5000;
 dotenv.config();
 
 const corsOptions = {
-  origin: "https://fast-food-app-rose.vercel.app",
+  origin: "*", // Change this to your specific frontend URL in production
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: "false", // Change to true if you need to include credentials (e.g., cookies) in cross-origin requests
+  credentials: true, // Change to false if you don't need to include credentials (e.g., cookies) in cross-origin requests
   optionsSuccessStatus: 204,
 };
 
