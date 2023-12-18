@@ -47,10 +47,10 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "uploads")));
 
 // Routes setup
-app.use("/auth", authRoutes);
-app.use("/menu", menuRoutes);
-app.use("/review", reviewRoutes);
-app.use("/uploads", express.static("uploads"));
+app.use("https://fast-food-api.vercel.app/auth", authRoutes);
+app.use("https://fast-food-api.vercel.app/menu", menuRoutes);
+app.use("https://fast-food-api.vercel.app/review", reviewRoutes);
+app.use("https://fast-food-api.vercel.app/uploads", express.static("uploads"));
 
 // Server setup
 app.listen(port, () => {
