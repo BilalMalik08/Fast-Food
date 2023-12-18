@@ -20,7 +20,7 @@ dotenv.config();
 app.use(
   cors({
     origin: "https://fast-food-jet.vercel.app",
-    methods: "POST, GET, PUT, DELETE",
+    methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
 );
