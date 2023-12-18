@@ -19,7 +19,7 @@ dotenv.config();
 // Middleware setup
 const corsOptions = {
   origin: "https://fast-food-app-rose.vercel.app",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  methods: "GET,PUT,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
 };
