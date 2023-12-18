@@ -19,7 +19,7 @@ dotenv.config();
 const corsOptions = {
   origin: "https://fast-food-app-rose.vercel.app",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: false, // Change to true if you need to include credentials (e.g., cookies) in cross-origin requests
+  credentials: "false", // Change to true if you need to include credentials (e.g., cookies) in cross-origin requests
   optionsSuccessStatus: 204,
 };
 
