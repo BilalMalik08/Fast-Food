@@ -11,7 +11,7 @@ import reviewRoutes from "./routes/reviewRouter.js";
 
 // Express.js configuration
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // dotenv configuration
 dotenv.config();
@@ -19,11 +19,12 @@ dotenv.config();
 // Middleware setup
 app.use(
   cors({
-    origin: ["http://deploy-mern-1whq.vercel.app"],
-    methods: "[POST, GET, PUT, DELETE]",
+    origin: "https://fast-food-jet.vercel.app",
+    methods: "POST, GET, PUT, DELETE",
     credentials: true,
   })
 );
+
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
