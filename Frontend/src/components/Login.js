@@ -10,6 +10,7 @@ import SuccessPopup from "./SuccessPopup";
 import ErrorAlert from "./ErrorAlert";
 import { useUser } from "./UserContext";
 import Footer from "./Footer";
+import apiURL from "../services/api";
 
 function Login() {
   const { updateUserFirstName } = useUser();
@@ -43,10 +44,7 @@ function Login() {
 
   const handleSignup = async (userData) => {
     try {
-      const response = await axios.post(
-        "https://fast-food-api.vercel.app/auth/signup",
-        userData
-      );
+      const response = await axios.post(`${apiURL}/auth/signup`, userData);
 
       if (response.status === 201) {
         console.log("User registered successfully:", response.data);
@@ -66,13 +64,10 @@ function Login() {
     const { email, password } = userFormData;
 
     try {
-      const response = await axios.post(
-        "https://fast-food-api.vercel.app/auth/login",
-        {
-          email,
-          password,
-        }
-      );
+      const response = await axios.post(`${apiURL}/auth/login`, {
+        email,
+        password,
+      });
 
       if (response.status === 200) {
         const data = response.data;

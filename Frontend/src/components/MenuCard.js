@@ -2,6 +2,7 @@ import "./menuCard.css";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import apiURL from "../services/api";
 
 function MenuCard() {
   const [menu, setMenu] = useState([]);
@@ -9,9 +10,7 @@ function MenuCard() {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await axios.get(
-          "https://fast-food-api.vercel.app/menu"
-        );
+        const response = await axios.get(`${apiURL}/menu`);
         setMenu(response.data);
       } catch (error) {
         console.error("Error fetching menu:", error);
@@ -31,7 +30,7 @@ function MenuCard() {
                 <div className="card menu-card">
                   <img
                     className="menu-card-img"
-                    src={`https://fast-food-api.vercel.app/uploads/${menuItem.image}`}
+                    src={`${apiURL}/uploads/${menuItem.image}`}
                     alt={menuItem.adminCategory}
                   />
                   <div className="card-body menu-card-body">
@@ -60,7 +59,7 @@ function MenuCard() {
                     </div>
                     <div className="menu-card-btn-container">
                       <Link
-                        to={`https://fast-food-api.vercel.app/menu/${menuItem.adminCategory
+                        to={`/menu/${menuItem.adminCategory
                           .trim()
                           .toLowerCase()}`}
                         className="btn btn-outline-light menu-card-btn"

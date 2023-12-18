@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EditReviewModal from "./EditReviewModal";
 import DeleteReviewModal from "./DeleteReviewModal";
+import apiURL from "../services/api";
 
 function ShowReviews() {
   const [reviews, setReviews] = useState([]);
@@ -15,9 +16,7 @@ function ShowReviews() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get(
-          "https://fast-food-api.vercel.app/review"
-        );
+        const response = await axios.get(`${apiURL}/review`);
         setReviews(response.data);
       } catch (error) {
         console.error("Error fetching reviews", error.message, error.response);
@@ -35,9 +34,7 @@ function ShowReviews() {
   const confirmDelete = async () => {
     try {
       // Make a DELETE request to the server to delete the review
-      await axios.delete(
-        `https://fast-food-api.vercel.app/review/${deleteReviewId}`
-      );
+      await axios.delete(`${apiURL}/review/${deleteReviewId}`);
 
       // Update the state to reflect the deletion
       setReviews((prevReviews) =>
@@ -63,7 +60,7 @@ function ShowReviews() {
   const handleEditSubmit = async (formData) => {
     try {
       const response = await axios.put(
-        `https://fast-food-api.vercel.app/review/${selectedReview._id}`,
+        `${apiURL}/review/${selectedReview._id}`,
         formData
       );
 

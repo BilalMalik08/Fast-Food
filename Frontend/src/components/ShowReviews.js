@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EditReviewModal from "./EditReviewModal";
 import Footer from "./Footer";
+import apiURL from "../services/api";
 
 function ShowReviews() {
   const [reviews, setReviews] = useState([]);
@@ -11,9 +12,7 @@ function ShowReviews() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get(
-          "https://fast-food-api.vercel.app/review"
-        );
+        const response = await axios.get(`${apiURL}/review`);
         setReviews(response.data);
       } catch (error) {
         console.error("Error fetching reviews", error.message, error.response);
@@ -27,7 +26,7 @@ function ShowReviews() {
   const handleEditSubmit = async (formData) => {
     try {
       const response = await axios.put(
-        `https://fast-food-api.vercel.app/reviews/${selectedReview._id}`,
+        `${apiURL}/reviews/${selectedReview._id}`,
         formData
       );
       setReviews((prevReviews) =>

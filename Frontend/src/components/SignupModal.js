@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import axios from "axios";
 import RegisterSuccessPopup from "./RegisterSuccessPopup";
-import RegisterFailedPopup from "./RegisterFailedPopup"; // Import the RegisterFailedPopup component
+import RegisterFailedPopup from "./RegisterFailedPopup";
+import apiURL from "../services/api";
 
 const SignupModal = ({ show, handleClose }) => {
   const [userData, setUserData] = useState({
@@ -27,10 +28,7 @@ const SignupModal = ({ show, handleClose }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "https://fast-food-api.vercel.app/auth/signup",
-        userData
-      );
+      const response = await axios.post(`${apiURL}/auth/signup`, userData);
 
       if (response && response.status === 201) {
         const data = response.data;

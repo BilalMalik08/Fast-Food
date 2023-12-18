@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import complaintImage from "../Img/complaintImage.png";
 import axios from "axios";
+import apiURL from "../services/api";
 
 function ReviewsRight() {
   const [formData, setFormData] = useState({
@@ -19,10 +20,7 @@ function ReviewsRight() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "https://fast-food-api.vercel.app/review",
-        formData
-      );
+      const response = await axios.post(`${apiURL}/review`, formData);
 
       if (response.status === 201) {
         console.log("Review submitted successfully");

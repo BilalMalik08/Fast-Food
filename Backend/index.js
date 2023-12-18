@@ -11,21 +11,21 @@ import reviewRoutes from "./routes/reviewRouter.js";
 
 // Express.js configuration
 const app = express();
-const port = process.env.PORT || 5000;
+const port = 5000;
 
 // dotenv configuration
 dotenv.config();
 
 // Middleware setup
 const corsOptions = {
-  origin: "https://fast-food-frontend-gilt.vercel.app",
+  origin: "https://your-vercel-app.vercel.app",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
 };
 
+// Use CORS middleware in your Express app
 app.use(cors(corsOptions));
-
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -47,10 +47,10 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "uploads")));
 
 // Routes setup
-app.use("https://fast-food-api.vercel.app/auth", authRoutes);
-app.use("https://fast-food-api.vercel.app/menu", menuRoutes);
-app.use("https://fast-food-api.vercel.app/review", reviewRoutes);
-app.use("https://fast-food-api.vercel.app/uploads", express.static("uploads"));
+app.use("/auth", authRoutes);
+app.use("/menu", menuRoutes);
+app.use("/review", reviewRoutes);
+app.use("/uploads", express.static("uploads"));
 
 // Server setup
 app.listen(port, () => {

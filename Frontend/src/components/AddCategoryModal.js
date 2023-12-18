@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
+import apiURL from "../services/api";
 
 const AddCategoryModal = ({ show, handleClose }) => {
   const [formData, setFormData] = useState({
@@ -48,7 +49,7 @@ const AddCategoryModal = ({ show, handleClose }) => {
     try {
       // Update the Axios request URL to match the correct endpoint
       const response = await axios.post(
-        "https://fast-food-api.vercel.app/menu/categories/upload",
+        `${apiURL}/menu/categories/upload`,
         data
       );
       console.log(response.data);
