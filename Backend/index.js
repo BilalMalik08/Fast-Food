@@ -11,14 +11,14 @@ import reviewRoutes from "./routes/reviewRouter.js";
 
 // Express.js configuration
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // dotenv configuration
 dotenv.config();
 
 // Middleware setup
 const corsOptions = {
-  origin: "https://fast-food-frontend-gilt.vercel.app/",
+  origin: "https://fast-food-app-omega.vercel.app",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
