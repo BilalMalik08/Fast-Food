@@ -20,7 +20,7 @@ function ReviewsRight() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/review",
+        "https://fast-food-api.vercel.app/review",
         formData
       );
 

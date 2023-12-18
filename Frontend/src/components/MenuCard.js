@@ -9,7 +9,9 @@ function MenuCard() {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await axios.get("/menu");
+        const response = await axios.get(
+          "https://fast-food-api.vercel.app/menu"
+        );
         setMenu(response.data);
       } catch (error) {
         console.error("Error fetching menu:", error);
@@ -29,7 +31,7 @@ function MenuCard() {
                 <div className="card menu-card">
                   <img
                     className="menu-card-img"
-                    src={`http://localhost:5000/uploads/${menuItem.image}`}
+                    src={`https://fast-food-api.vercel.app/uploads/${menuItem.image}`}
                     alt={menuItem.adminCategory}
                   />
                   <div className="card-body menu-card-body">
@@ -58,7 +60,7 @@ function MenuCard() {
                     </div>
                     <div className="menu-card-btn-container">
                       <Link
-                        to={`/menu/${menuItem.adminCategory
+                        to={`https://fast-food-api.vercel.app/menu/${menuItem.adminCategory
                           .trim()
                           .toLowerCase()}`}
                         className="btn btn-outline-light menu-card-btn"

@@ -47,7 +47,10 @@ const AddCategoryModal = ({ show, handleClose }) => {
 
     try {
       // Update the Axios request URL to match the correct endpoint
-      const response = await axios.post("/menu/categories/upload", data);
+      const response = await axios.post(
+        "https://fast-food-api.vercel.app/menu/categories/upload",
+        data
+      );
       console.log(response.data);
       handleClose();
     } catch (error) {

@@ -15,7 +15,9 @@ function ShowReviews() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get("/review");
+        const response = await axios.get(
+          "https://fast-food-api.vercel.app/review"
+        );
         setReviews(response.data);
       } catch (error) {
         console.error("Error fetching reviews", error.message, error.response);
@@ -33,7 +35,9 @@ function ShowReviews() {
   const confirmDelete = async () => {
     try {
       // Make a DELETE request to the server to delete the review
-      await axios.delete(`/review/${deleteReviewId}`);
+      await axios.delete(
+        `https://fast-food-api.vercel.app/review/${deleteReviewId}`
+      );
 
       // Update the state to reflect the deletion
       setReviews((prevReviews) =>
@@ -59,7 +63,7 @@ function ShowReviews() {
   const handleEditSubmit = async (formData) => {
     try {
       const response = await axios.put(
-        `/review/${selectedReview._id}`,
+        `https://fast-food-api.vercel.app/review/${selectedReview._id}`,
         formData
       );
 

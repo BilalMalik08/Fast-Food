@@ -14,7 +14,9 @@ function AdminMenuComp() {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/menu");
+        const response = await axios.get(
+          "https://fast-food-api.vercel.app/menu"
+        );
         setMenu(response.data);
         console.log("Menu items:", response.data);
       } catch (error) {
@@ -33,7 +35,7 @@ function AdminMenuComp() {
   const handleDeleteConfirm = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/menu/${categoryToDelete._id}`
+        `https://fast-food-api.vercel.app/menu/${categoryToDelete._id}`
       );
       console.log(response.data);
       // Remove the deleted category from the state
@@ -67,7 +69,7 @@ function AdminMenuComp() {
                 <div className="card menu-card admin-menu-card">
                   <img
                     className="menu-card-img"
-                    src={`http://localhost:5000/uploads/${menuItem.image}`}
+                    src={`https://fast-food-api.vercel.app/uploads/${menuItem.image}`}
                     alt={menuItem.adminCategory}
                   />
 
@@ -98,7 +100,7 @@ function AdminMenuComp() {
                     </div>
                     <div className="menu-card-btn-container">
                       <Link
-                        to={`/admin/menu/${menuItem.adminCategory
+                        to={`https://fast-food-api.vercel.app/admin/menu/${menuItem.adminCategory
                           .trim()
                           .toLowerCase()}`}
                       >
