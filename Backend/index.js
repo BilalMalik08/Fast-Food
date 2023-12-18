@@ -16,15 +16,15 @@ const port = process.env.PORT || 5000;
 // dotenv configuration
 dotenv.config();
 
-// Middleware setup
 const corsOptions = {
   origin: "https://fast-food-app-rose.vercel.app",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: false,
+  credentials: false, // Change to true if you need to include credentials (e.g., cookies) in cross-origin requests
   optionsSuccessStatus: 204,
 };
 
 // Use CORS middleware in your Express app
+console.log("Applying CORS middleware...");
 app.use(cors(corsOptions));
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
