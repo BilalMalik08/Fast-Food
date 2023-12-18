@@ -18,7 +18,7 @@ dotenv.config();
 
 // Middleware setup
 const corsOptions = {
-  origin: "https://your-vercel-app.vercel.app",
+  origin: "https://fast-food-frontend-gilt.vercel.app",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
