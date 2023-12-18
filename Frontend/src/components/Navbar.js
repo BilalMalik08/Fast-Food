@@ -9,6 +9,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useUser } from "./UserContext";
 import axios from "axios";
+import apiURL from "../services/api";
 
 function Navbar() {
   const { userFirstName } = useUser();
@@ -35,7 +36,7 @@ function Navbar() {
 
   const fetchUserInfo = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/auth/userinfo", {
+      const response = await axios.get(`${apiURL}/auth/userinfo`, {
         withCredentials: true,
       });
 
