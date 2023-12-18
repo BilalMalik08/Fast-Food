@@ -17,13 +17,14 @@ const port = process.env.PORT || 5000;
 dotenv.config();
 
 // Middleware setup
-app.use(
-  cors({
-    origin: "https://fast-food-frontend-gilt.vercel.app",
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+const corsOptions = {
+  origin: "https://fast-food-frontend-gilt.vercel.app",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
