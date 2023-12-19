@@ -16,20 +16,21 @@ const port = process.env.PORT || 5000;
 // dotenv configuration
 dotenv.config();
 
-const allowedOrigins = ["https://fast-food-app-rose.vercel.app"];
+// const allowedOrigins = ["https://fast-food-app-rose.vercel.app"];
 
-const allowedMethods = ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"];
+// const allowedMethods = ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"];
 
-const corsOptions = {
-  origin: allowedOrigins,
-  methods: allowedMethods,
-  credentials: true,
-  optionsSuccessStatus: 204,
-};
+// const corsOptions = {
+//   origin: allowedOrigins,
+//   methods: allowedMethods,
+//   credentials: true,
+//   optionsSuccessStatus: 204,
+// };
 
 // Use CORS middleware in your Express app
 console.log("Applying CORS middleware...");
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
