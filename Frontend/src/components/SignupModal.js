@@ -28,7 +28,9 @@ const SignupModal = ({ show, handleClose }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${apiURL}/auth/signup`, userData);
+      const response = await axios.post(`${apiURL}/auth/signup`, userData, {
+        withCredentials: true,
+      });
 
       if (response && response.status === 201) {
         const data = response.data;
