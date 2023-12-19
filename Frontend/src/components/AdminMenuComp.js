@@ -15,7 +15,9 @@ function AdminMenuComp() {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await axios.get(`${apiURL}/menu`);
+        const response = await axios.get(`${apiURL}/menu`, {
+          withCredentials: true,
+        });
         setMenu(response.data);
         console.log("Menu items:", response.data);
       } catch (error) {
@@ -34,7 +36,10 @@ function AdminMenuComp() {
   const handleDeleteConfirm = async () => {
     try {
       const response = await axios.delete(
-        `${apiURL}/menu/${categoryToDelete._id}`
+        `${apiURL}/menu/${categoryToDelete._id}`,
+        {
+          withCredentials: true,
+        }
       );
       console.log(response.data);
       // Remove the deleted category from the state

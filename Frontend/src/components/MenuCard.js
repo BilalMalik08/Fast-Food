@@ -10,7 +10,9 @@ function MenuCard() {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await axios.get(`${apiURL}/menu`);
+        const response = await axios.get(`${apiURL}/menu`, {
+          withCredentials: true,
+        });
         setMenu(response.data);
       } catch (error) {
         console.error("Error fetching menu:", error);

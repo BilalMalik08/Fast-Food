@@ -50,7 +50,10 @@ const AddCategoryModal = ({ show, handleClose }) => {
       // Update the Axios request URL to match the correct endpoint
       const response = await axios.post(
         `${apiURL}/menu/categories/upload`,
-        data
+        data,
+        {
+          withCredentials: true,
+        }
       );
       console.log(response.data);
       handleClose();
