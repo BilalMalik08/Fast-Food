@@ -1,5 +1,6 @@
 import "./foodMenu.css";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import PizzaMenuContainer from "./PizzaMenuContainer";
 import BurgerMenuContainer from "./BurgerMenuContainer";
@@ -13,6 +14,7 @@ import HotDrinkMenuContainer from "./HotDrinkMenuContainer";
 
 const AdminMenuPage = () => {
   const { adminCategory } = useParams();
+  const navigate = useNavigate();
 
   // Determine which menu component to render based on the adminCategory parameter
   let adminMenuComponent;

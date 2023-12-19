@@ -3,6 +3,7 @@ import AdminDashboardContainer from "./AdminDashboardContainer";
 import LoadingSpinner from "./LoadingSpinner";
 import InvalidCredentialsAlert from "./InvalidCredentialsAlert";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AdminLoginForm() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,8 @@ function AdminLoginForm() {
   const [showInvalidCredentialsAlert, setShowInvalidCredentialsAlert] =
     useState(false);
 
+  const navigate = useNavigate();
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value.toLowerCase() }); // Convert to lowercase
@@ -23,16 +26,15 @@ function AdminLoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = formData;
-    // Simulated login logic for demonstration purposes
     if (email === "bilal@admin" && password === "bilalmalik") {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
         setLoggedIn(true);
-        window.history.pushState(null, "", "/dashboard");
+        navigate("/dashboard"); // Use navigate to navigate to the dashboard page
       }, 3000);
     } else {
-      setShowInvalidCredentialsAlert(true); // Show the invalid credentials alert
+      setShowInvalidCredentialsAlert(true);
     }
   };
 
