@@ -12,9 +12,7 @@ function ShowReviews() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get(`${apiURL}/review`, {
-          withCredentials: true,
-        });
+        const response = await axios.get(`${apiURL}/review`);
         setReviews(response.data);
       } catch (error) {
         console.error("Error fetching reviews", error.message, error.response);

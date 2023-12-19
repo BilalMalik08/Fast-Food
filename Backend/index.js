@@ -11,20 +11,13 @@ import reviewRoutes from "./routes/reviewRouter.js";
 
 // Express.js configuration
 const app = express();
-const port = process.env.PORT || 5000;
+const port = 5000;
 
 // dotenv configuration
 dotenv.config();
 
-// Use CORS middleware in your Express app
-console.log("Applying CORS middleware...");
-app.use(
-  cors({
-    origin: "https://fast-food-app-rose.vercel.app",
-    credentials: true,
-  })
-);
-
+// Middleware setup
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -50,11 +43,6 @@ app.use("/auth", authRoutes);
 app.use("/menu", menuRoutes);
 app.use("/review", reviewRoutes);
 app.use("/uploads", express.static("uploads"));
-
-// Sample GET route
-app.get("/", (req, res) => {
-  res.send("Hello");
-});
 
 // Server setup
 app.listen(port, () => {

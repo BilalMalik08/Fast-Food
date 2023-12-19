@@ -44,9 +44,7 @@ function Login() {
 
   const handleSignup = async (userData) => {
     try {
-      const response = await axios.post(`${apiURL}/auth/signup`, userData, {
-        withCredentials: true,
-      });
+      const response = await axios.post(`${apiURL}/auth/signup`, userData);
 
       if (response.status === 201) {
         console.log("User registered successfully:", response.data);
@@ -66,16 +64,10 @@ function Login() {
     const { email, password } = userFormData;
 
     try {
-      const response = await axios.post(
-        `${apiURL}/auth/login`,
-        {
-          email,
-          password,
-        },
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await axios.post(`${apiURL}/auth/login`, {
+        email,
+        password,
+      });
 
       if (response.status === 200) {
         const data = response.data;

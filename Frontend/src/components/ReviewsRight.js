@@ -20,9 +20,7 @@ function ReviewsRight() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${apiURL}/review`, formData, {
-        withCredentials: true,
-      });
+      const response = await axios.post(`${apiURL}/review`, formData);
 
       if (response.status === 201) {
         console.log("Review submitted successfully");
