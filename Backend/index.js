@@ -18,7 +18,12 @@ dotenv.config();
 
 // Use CORS middleware in your Express app
 console.log("Applying CORS middleware...");
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://fast-food-app-rose.vercel.app",
+    credentials: true,
+  })
+);
 
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
