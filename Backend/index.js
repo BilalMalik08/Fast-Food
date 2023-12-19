@@ -44,6 +44,10 @@ app.use("/menu", menuRoutes);
 app.use("/review", reviewRoutes);
 app.use("/uploads", express.static("uploads"));
 
+app.get("/", (req, res) => {
+  res.send("Hello Bilal");
+});
+
 // Server setup
 app.listen(port, () => {
   console.log("App is running on port: " + port);
