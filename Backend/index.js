@@ -2,12 +2,12 @@
 import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
+import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
 import authRoutes from "./routes/authRouter.js";
 import menuRoutes from "./routes/menuRouter.js";
 import reviewRoutes from "./routes/reviewRouter.js";
-import allowCors from "./middlewares/corsMiddleware.js";
 
 // Express.js configuration
 const app = express();
@@ -17,7 +17,7 @@ const port = process.env.PORT || 5000;
 dotenv.config();
 
 // Middleware setup
-app.use(allowCors); // Apply allowCors middleware
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -45,8 +45,7 @@ app.use("/review", reviewRoutes);
 app.use("/uploads", express.static("uploads"));
 
 app.get("/", (req, res) => {
-  const d = new Date();
-  res.send(d.toString());
+  res.send("Hello Bilal");
 });
 
 // Server setup
