@@ -1,3 +1,3 @@
-const apiURL = "http://localhost:5000";
+const apiURL = "https://fast-food-web-api.vercel.app";
 
 export default apiURL;
