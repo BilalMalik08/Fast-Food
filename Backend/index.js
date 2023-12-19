@@ -17,7 +17,7 @@ const port = process.env.PORT || 5000;
 dotenv.config();
 
 // Middleware setup
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: "https://fast-food-app-phi.vercel.app" }));
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
