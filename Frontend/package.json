@@ -2,7 +2,7 @@
   "name": "fast-food",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://fast-food-api.vercel.app",
+  "proxy": "https://fast-food-api.vercel.app/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
