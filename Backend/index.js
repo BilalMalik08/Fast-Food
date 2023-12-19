@@ -45,7 +45,8 @@ app.use("/review", reviewRoutes);
 app.use("/uploads", express.static("uploads"));
 
 app.get("/", (req, res) => {
-  res.send("Hello Bilal");
+  const d = new Date();
+  res.send(d.toString());
 });
 
 // Server setup
