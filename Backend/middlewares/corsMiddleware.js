@@ -14,6 +14,22 @@ const allowCors = (fn) => async (req, res) => {
     res.status(200).end();
     return;
   }
+  if (req.method === "POST") {
+    res.status(200).end();
+    return;
+  }
+  if (req.method === "GET") {
+    res.status(200).end();
+    return;
+  }
+  if (req.method === "PUT") {
+    res.status(200).end();
+    return;
+  }
+  if (req.method === "DELETE") {
+    res.status(200).end();
+    return;
+  }
   return await fn(req, res);
 };
 
