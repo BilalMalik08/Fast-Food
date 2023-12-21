@@ -17,7 +17,13 @@ const port = process.env.PORT || 4000;
 dotenv.config();
 
 // Middleware setup
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://fast-food-frontend-mocha.vercel.app"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
