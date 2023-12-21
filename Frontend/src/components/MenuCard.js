@@ -30,7 +30,7 @@ function MenuCard() {
                 <div className="card menu-card">
                   <img
                     className="menu-card-img"
-                    src={`${apiURL}/uploads/${menuItem.image}`}
+                    src={`/uploads/${menuItem.image}`}
                     alt={menuItem.adminCategory}
                   />
                   <div className="card-body menu-card-body">
