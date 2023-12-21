@@ -34,10 +34,7 @@ const SignupModal = ({ show, handleClose }) => {
         const data = response.data;
         console.log("Registration successful:", data);
         if (data && data.user) {
-          // Display the RegisterSuccessPopup
           setShowRegisterSuccessPopup(true);
-
-          // Reset the userData state to clear the form
           setUserData({
             firstName: "",
             lastName: "",
@@ -45,8 +42,6 @@ const SignupModal = ({ show, handleClose }) => {
             contact: "",
             password: "",
           });
-
-          // Close the SignupModal
           handleClose();
         } else {
           console.error("Invalid response format:", response);
@@ -54,7 +49,6 @@ const SignupModal = ({ show, handleClose }) => {
       } else {
         console.error("Registration failed:", response);
         if (response && response.data && response.data.message) {
-          // Display the RegisterFailedPopup with the error message
           setRegisterFailedMessage(response.data.message);
           setShowRegisterFailedPopup(true);
         } else {
@@ -68,7 +62,6 @@ const SignupModal = ({ show, handleClose }) => {
       );
 
       if (error.response && error.response.status === 400) {
-        // Display the RegisterFailedPopup with the error message
         setRegisterFailedMessage(error.response.data.message);
         setShowRegisterFailedPopup(true);
       } else {
@@ -77,6 +70,24 @@ const SignupModal = ({ show, handleClose }) => {
           error.response?.data || error.message
         );
       }
+    }
+  };
+
+  const handleGoogleSignup = async () => {
+    try {
+      const response = await axios.get(`${apiURL}/auth/google/signup`);
+      if (response && response.data && response.data.redirectUrl) {
+        window.location.href = response.data.redirectUrl;
+      } else {
+        console.error("Invalid response format:", response);
+      }
+    } catch (error) {
+      console.error("Error during Google OAuth signup:", error);
+      if (error.response) {
+        console.error("Response data:", error.response.data);
+        console.error("Response status:", error.response.status);
+      }
+      // Add additional handling for specific error conditions if needed
     }
   };
 
@@ -131,7 +142,6 @@ const SignupModal = ({ show, handleClose }) => {
                 required
               />
             </Form.Group>
-
             <Form.Group controlId="formLastName">
               <Form.Label>Last Name</Form.Label>
               <Form.Control
@@ -143,7 +153,6 @@ const SignupModal = ({ show, handleClose }) => {
                 required
               />
             </Form.Group>
-
             <Form.Group controlId="formEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -155,7 +164,6 @@ const SignupModal = ({ show, handleClose }) => {
                 required
               />
             </Form.Group>
-
             <Form.Group controlId="formContact">
               <Form.Label>Contact</Form.Label>
               <Form.Control
@@ -167,7 +175,6 @@ const SignupModal = ({ show, handleClose }) => {
                 required
               />
             </Form.Group>
-
             <Form.Group controlId="formPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
@@ -179,9 +186,11 @@ const SignupModal = ({ show, handleClose }) => {
                 required
               />
             </Form.Group>
-
             <Button type="submit" className="btn btn-dark mt-2">
               Sign Up
+            </Button>{" "}
+            <Button type="button" onClick={handleGoogleSignup}>
+              Sign Up With Google
             </Button>
           </Form>
         </Modal.Body>
