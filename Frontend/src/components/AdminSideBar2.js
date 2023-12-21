@@ -25,14 +25,14 @@ function AdminSideBar2() {
         <div className="bg-light border-right col-md-2" id="sidebar">
           <div className="list-group admin-side-bar">
             <Link
-              to="/dashboard"
+              to="/admin/dashboard"
               className="list-group-item side-bar-list list-group-item-action !active"
             >
               <FontAwesomeIcon className="adminSidebar-icons" icon={faList} />
               {"Dashboard"}
             </Link>
             <Link
-              to="/adminmenu"
+              to="/admin/adminmenu"
               className="list-group-item side-bar-list list-group-item-action"
             >
               <FontAwesomeIcon
@@ -42,7 +42,7 @@ function AdminSideBar2() {
               {"Menu"}
             </Link>
             <Link
-              to="/orders"
+              to="/admin/orders"
               className="list-group-item side-bar-list list-group-item-action"
             >
               <FontAwesomeIcon
@@ -52,7 +52,7 @@ function AdminSideBar2() {
               {"Orders"}
             </Link>
             <Link
-              to="/customers"
+              to="/admin/customers"
               className="list-group-item side-bar-list list-group-item-action"
             >
               <FontAwesomeIcon
@@ -62,14 +62,14 @@ function AdminSideBar2() {
               {"Customers"}
             </Link>
             <Link
-              to="/settings"
+              to="/admin/settings"
               className="list-group-item side-bar-list list-group-item-action"
             >
               <FontAwesomeIcon className="adminSidebar-icons" icon={faCog} />
               {"Settings"}
             </Link>
             <Link
-              to="/feedbacks"
+              to="/admin/feedbacks"
               className="list-group-item side-bar-list list-group-item-action"
             >
               <FontAwesomeIcon

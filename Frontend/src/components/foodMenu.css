@@ -102,10 +102,19 @@
     text-align: center;
 }
 
+.admin-foodMenu-btn-container {
+    background-color: white;
+}
+
+.admin-food-item-container {
+    background-color: white;
+}
+
 .admin-food-item-card {
     height: 27vh;
     width: 100%;
     border: 2px solid white;
+    background-color: black;
 }
 
 .admin-food-item-img {

@@ -11,7 +11,7 @@ import reviewRoutes from "./routes/reviewRouter.js";
 
 // Express.js configuration
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 
 // dotenv configuration
 dotenv.config();

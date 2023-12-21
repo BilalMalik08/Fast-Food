@@ -8,25 +8,46 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useUser } from "./UserContext";
+import { useAdmin } from "./AdminContext";
 import axios from "axios";
 import apiURL from "../services/api";
 
 function Navbar() {
-  const { userFirstName } = useUser();
+  const { userFirstName, logoutUser } = useUser();
+  const { adminFirstName } = useAdmin();
   const { cartItems, updateCartItem } = useContext(CartContext);
   const [cartCount, setCartCount] = useState(0);
   const [usertName, setUserName] = useState("");
+  const [admintName, setAdminName] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
   const allowedRoutes = [
-    "/dashboard",
-    "/adminmenu",
-    "/orders",
-    "/customers",
-    "/settings",
-    "/feedbacks",
+    "/admin/dashboard",
+    "/admin/adminmenu",
+    "/admin/orders",
+    "/admin/customers",
+    "/admin/settings",
+    "/admin/feedbacks",
+    "/admin/adminmenu/:adminCategory",
   ];
+
+  const adminCategories = [
+    "pizzas",
+    "burgers",
+    "sandwiches",
+    "chickens",
+    "chowmeins",
+    "soups",
+    "icecreams",
+    "colddrinks",
+    "hotdrinks",
+  ];
+
+  adminCategories.forEach((category) => {
+    allowedRoutes.push(`/admin/adminmenu/${category}`);
+  });
+
   const isDashboardRoute = allowedRoutes.includes(location.pathname);
   const navbarClass = isDashboardRoute ? "white-navbar" : "black-navbar";
   const navLinkClass = isDashboardRoute ? "text-dark" : "text-white";
@@ -48,14 +69,52 @@ function Navbar() {
     }
   };
 
-  useEffect(() => {
-    fetchUserInfo();
-  }, []);
+  const handleLogout = async () => {
+    try {
+      // Assuming your server has an endpoint for logout, e.g., "/auth/logout"
+      const response = await axios.post(`${apiURL}/auth/logout`, null, {
+        withCredentials: true,
+      });
 
-  // Update cartCount whenever cartItems change
+      if (response.status === 200) {
+        // Logout successful on the server
+        logoutUser(); // Unset user details in the UserContext
+        setUserName(""); // Clear local state for user name
+        // Additional code if needed (e.g., redirecting to login page)
+        navigate("/login"); // Redirect to the login page after logout
+      } else {
+        console.error("Logout failed with status:", response.status);
+        // Handle logout failure (e.g., display an error message)
+      }
+    } catch (error) {
+      console.error("Error logging out:", error);
+      // Handle logout error (e.g., display an error message)
+    }
+  };
+
+  const fetchAdminInfo = async () => {
+    try {
+      const response = await axios.get(`${apiURL}/auth/admin/info`, {
+        withCredentials: true,
+      });
+
+      if (response.status === 200) {
+        setAdminName(response.data.firstName);
+      }
+    } catch (error) {
+      console.error("Error fetching admin information:", error);
+    }
+  };
+
   useEffect(() => {
-    setCartCount(cartItems.length);
-  }, [cartItems]);
+    if (location.pathname.startsWith("/admin") && isAdminLoggedIn) {
+      // Fetch admin info when on admin-related pages
+      fetchAdminInfo();
+    } else {
+      // Fetch user info when on other pages
+      fetchUserInfo();
+    }
+  }, [location.pathname, isAdminLoggedIn]);
 
   // User Dropdown (when route is not allowed)
   const showUserDropdown = !isDashboardRoute;
@@ -231,6 +290,7 @@ function Navbar() {
                       <Link
                         className="dropdown-item"
                         to={isUserLoggedIn ? "/logout" : "/login"}
+                        onClick={handleLogout}
                       >
                         {isUserLoggedIn ? "Logout" : "Login"}
                       </Link>
@@ -249,17 +309,6 @@ function Navbar() {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <img
-                      src={mypic}
-                      alt="Muhammad Bilal"
-                      className="img-fluid"
-                      style={{
-                        width: "50px",
-                        height: "25px",
-                        borderRadius: "50%",
-                        marginRight: "5px",
-                      }}
-                    />
                     {isAdminLoggedIn ? "Muhammad Bilal" : "Login"}
                   </button>
                   <ul

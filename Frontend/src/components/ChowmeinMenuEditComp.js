@@ -185,7 +185,7 @@ function ChowmeinMenuEditComp() {
 
   return (
     <>
-      <div className="container food-item-container">
+      <div className="container food-item-container admin-food-item-container">
         {chowmeinItems.map((chowmein) => (
           <div className="card admin-food-item-card mb-4">
             <div className="row g-0">

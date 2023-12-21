@@ -7,7 +7,7 @@ import Footer from "./Footer";
 
 function ChowmeinMenuContainer() {
   const location = useLocation();
-  const isChowmeinMenuPage = location.pathname === "/admin/menu/chowmein";
+  const isChowmeinMenuPage = location.pathname === "/admin/adminmenu/chowmeins";
   const adminRow3Class = isChowmeinMenuPage ? "admin-row3-white" : "admin-row3";
 
   return (

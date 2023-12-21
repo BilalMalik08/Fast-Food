@@ -7,7 +7,7 @@ import Footer from "./Footer";
 
 function SoupMenuContainer() {
   const location = useLocation();
-  const isSoupMenuPage = location.pathname === "/admin/menu/soups";
+  const isSoupMenuPage = location.pathname === "/admin/adminmenu/soups";
   const adminRow3Class = isSoupMenuPage ? "admin-row3-white" : "admin-row3";
 
   return (

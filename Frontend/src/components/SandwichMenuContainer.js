@@ -7,7 +7,8 @@ import Footer from "./Footer";
 
 function SandwichMenuContainer() {
   const location = useLocation();
-  const isSandwichMenuPage = location.pathname === "/admin/menu/sandwiches";
+  const isSandwichMenuPage =
+    location.pathname === "/admin/adminmenu/sandwiches";
   const adminRow3Class = isSandwichMenuPage ? "admin-row3-white" : "admin-row3";
 
   return (

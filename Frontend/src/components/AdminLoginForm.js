@@ -1,39 +1,65 @@
 import "./adminLoginForm.css";
-import AdminDashboardContainer from "./AdminDashboardContainer";
-import LoadingSpinner from "./LoadingSpinner";
-import InvalidCredentialsAlert from "./InvalidCredentialsAlert";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import AdminSignupModal from "./AdminSignupModal";
+import LoadingSpinner from "./LoadingSpinner";
+import InvalidCredentialsAlert from "./InvalidCredentialsAlert";
+import AdminDashboardContainer from "./AdminDashboardContainer";
+import apiURL from "../services/api";
 
-function AdminLoginForm() {
+const AdminLoginForm = () => {
+  const [showSignupModal, setShowSignupModal] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  const [loading, setLoading] = useState(false); // State to track loading status
-  const [loggedIn, setLoggedIn] = useState(false); // State to track login status
+  const [loading, setLoading] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [showInvalidCredentialsAlert, setShowInvalidCredentialsAlert] =
     useState(false);
 
   const navigate = useNavigate();
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value.toLowerCase() }); // Convert to lowercase
+  const openSignupModal = () => {
+    setShowSignupModal(true);
   };
 
-  const handleSubmit = (e) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value.toLowerCase() });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = formData;
-    if (email === "bilal@admin" && password === "bilalmalik") {
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-        setLoggedIn(true);
-        navigate("/dashboard"); // Use navigate to navigate to the dashboard page
-      }, 3000);
-    } else {
+
+    try {
+      const response = await axios.post(`${apiURL}/auth/admin/login`, {
+        email,
+        password,
+      });
+
+      if (response && response.status === 200) {
+        const data = response.data;
+        console.log("Admin Login successful:", data);
+
+        setLoading(true);
+        setTimeout(() => {
+          setLoading(false);
+          setLoggedIn(true);
+          navigate("/admin/dashboard");
+        }, 3000);
+      } else {
+        console.error("Admin Login failed:", response);
+        setShowInvalidCredentialsAlert(true);
+      }
+    } catch (error) {
+      console.error(
+        "Error during admin login:",
+        error.response?.data || error.message
+      );
       setShowInvalidCredentialsAlert(true);
     }
   };
@@ -41,12 +67,10 @@ function AdminLoginForm() {
   useEffect(() => {
     let timer;
     if (loggedIn) {
-      // If logged in, set a timer to hide loading spinner after 3 seconds
       timer = setTimeout(() => {
         setLoading(false);
       }, 3000);
     }
-    // Clean up the timer to prevent memory leaks
     return () => clearTimeout(timer);
   }, [loggedIn]);
 
@@ -82,19 +106,27 @@ function AdminLoginForm() {
                 required
               />
             </div>
-            <button type="submit" className="adminLoginForm-btn">
-              Sign In
-            </button>
-            {showInvalidCredentialsAlert && (
-              <InvalidCredentialsAlert
-                onClose={() => setShowInvalidCredentialsAlert(false)}
-              />
-            )}
+            <div className="container login-signup">
+              <button className="LoginForm-btn form-btn" type="submit">
+                Log In
+              </button>
+              <button
+                className="LoginForm-btn form-btn"
+                type="button"
+                onClick={openSignupModal}
+              >
+                Sign Up
+              </button>
+            </div>
           </div>
         </div>
       )}
+      <AdminSignupModal
+        show={showSignupModal}
+        handleClose={() => setShowSignupModal(false)}
+      />
     </form>
   );
-}
+};
 
 export default AdminLoginForm;

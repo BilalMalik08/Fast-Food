@@ -176,7 +176,7 @@ function SoupMenuEditComp() {
 
   return (
     <>
-      <div className="container food-item-container">
+      <div className="container food-item-container admin-food-item-container">
         {soupItems.map((soup) => (
           <div className="card admin-food-item-card mb-4" key={soup.id}>
             <div className="row g-0">

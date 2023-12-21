@@ -7,7 +7,7 @@ import Footer from "./Footer";
 
 function IceCreamMenuContainer() {
   const location = useLocation();
-  const isIceCreamMenuPage = location.pathname === "/admin/menu/icecreams";
+  const isIceCreamMenuPage = location.pathname === "/admin/adminmenu/icecreams";
   const adminRow3Class = isIceCreamMenuPage ? "admin-row3-white" : "admin-row3";
 
   return (

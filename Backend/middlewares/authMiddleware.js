@@ -18,6 +18,14 @@ const authMiddleware = (req, res, next) => {
 
     // Attach the decoded user to the request object for later use in routes
     req.user = decoded;
+
+    // Check if the route is restricted to admins
+    if (req.originalUrl.startsWith("/admin") && decoded.role !== "admin") {
+      return res
+        .status(403)
+        .json({ message: "Forbidden: Admin access required" });
+    }
+
     next();
   } catch (error) {
     return res.status(401).json({ message: "Unauthorized: Invalid token" });

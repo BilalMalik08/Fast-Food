@@ -171,7 +171,7 @@ function IceCreamMenuEditComp() {
 
   return (
     <>
-      <div className="container food-item-container">
+      <div className="container food-item-container admin-food-item-container">
         {iceCreamItems.map((icecream) => (
           <div className="card admin-food-item-card mb-4">
             <div className="row g-0">

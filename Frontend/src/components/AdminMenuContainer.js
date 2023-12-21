@@ -7,7 +7,7 @@ import Footer from "./Footer";
 
 function AdminMenuContainer() {
   const location = useLocation();
-  const isAdminMenuPage = location.pathname === "/adminmenu";
+  const isAdminMenuPage = location.pathname === "/admin/adminmenu";
   const adminRow3Class = isAdminMenuPage ? "admin-row3-white" : "admin-row3";
 
   return (

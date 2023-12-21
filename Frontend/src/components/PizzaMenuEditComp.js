@@ -179,7 +179,7 @@ function PizzaMenuEditComp() {
 
   return (
     <>
-      <div className="container food-item-container">
+      <div className="container food-item-container admin-food-item-container">
         {pizzaItems.map((pizza) => (
           <div className="card admin-food-item-card mb-4" key={pizza.id}>
             <div className="row g-0">

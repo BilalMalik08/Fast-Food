@@ -7,7 +7,7 @@ import Footer from "./Footer";
 
 function BurgerMenuContainer() {
   const location = useLocation();
-  const isBurgerMenuPage = location.pathname === "/admin/menu/burgers";
+  const isBurgerMenuPage = location.pathname === "/admin/adminmenu/burgers";
   const adminRow3Class = isBurgerMenuPage ? "admin-row3-white" : "admin-row3";
 
   return (

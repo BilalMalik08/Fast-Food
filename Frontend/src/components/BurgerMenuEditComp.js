@@ -164,7 +164,7 @@ function BurgerMenuEditComp() {
 
   return (
     <>
-      <div className="container food-item-container">
+      <div className="container food-item-container admin-food-item-container">
         {burgerItems.map((burger) => (
           <div className="card admin-food-item-card mb-4" key={burger.id}>
             <div className="row g-0">

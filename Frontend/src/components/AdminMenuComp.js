@@ -99,7 +99,7 @@ function AdminMenuComp() {
                     </div>
                     <div className="menu-card-btn-container">
                       <Link
-                        to={`/admin/menu/${menuItem.adminCategory
+                        to={`/admin/adminmenu/${menuItem.adminCategory
                           .trim()
                           .toLowerCase()}`}
                       >

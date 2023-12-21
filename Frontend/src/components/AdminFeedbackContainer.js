@@ -8,7 +8,7 @@ import Footer from "./Footer";
 
 function AdminFeedbackContainer() {
   const location = useLocation();
-  const isAdminFeedbacksPage = location.pathname === "/feedbacks";
+  const isAdminFeedbacksPage = location.pathname === "/admin/feedbacks";
   const adminRow3Class = isAdminFeedbacksPage
     ? "admin-row3-white"
     : "admin-row3";

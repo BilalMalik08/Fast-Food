@@ -55,17 +55,23 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/showreviews" element={<ShowReviews />} />
-          <Route path="/adminlogin" element={<AdminLoginForm />} />
-          <Route path="/dashboard" element={<AdminDashboardContainer />} />
-          <Route path="/adminmenu" element={<AdminMenuContainer />} />
+          <Route path="/admin" element={<AdminLoginForm />} />
           <Route
-            path="/admin/menu/:adminCategory"
+            path="/admin/dashboard"
+            element={<AdminDashboardContainer />}
+          />
+          <Route path="/admin/adminmenu" element={<AdminMenuContainer />} />
+          <Route
+            path="/admin/adminmenu/:adminCategory"
             element={<AdminMenuPage />}
           />
-          <Route path="/orders" element={<AdminOrdersContainer />} />
-          <Route path="/customers" element={<AdminCustomersContainer />} />
-          <Route path="/settings" element={<AdminSettingsContainer />} />
-          <Route path="/feedbacks" element={<AdminFeedbackContainer />} />
+          <Route path="/admin/orders" element={<AdminOrdersContainer />} />
+          <Route
+            path="/admin/customers"
+            element={<AdminCustomersContainer />}
+          />
+          <Route path="/admin/settings" element={<AdminSettingsContainer />} />
+          <Route path="/admin/feedbacks" element={<AdminFeedbackContainer />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/orderconfirmation" element={<ConfirmOrder />} />

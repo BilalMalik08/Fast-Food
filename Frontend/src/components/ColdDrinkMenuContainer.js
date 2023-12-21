@@ -7,7 +7,8 @@ import Footer from "./Footer";
 
 function ColdDrinkMenuContainer() {
   const location = useLocation();
-  const isColdDrinkMenuPage = location.pathname === "/admin/menu/colddrinks";
+  const isColdDrinkMenuPage =
+    location.pathname === "/admin/adminmenu/colddrinks";
   const adminRow3Class = isColdDrinkMenuPage
     ? "admin-row3-white"
     : "admin-row3";

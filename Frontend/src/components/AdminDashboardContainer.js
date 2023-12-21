@@ -7,7 +7,7 @@ import Footer from "./Footer";
 
 function AdminDashboardContainer() {
   const location = useLocation();
-  const isAdminDashboardPage = location.pathname === "/dashboard";
+  const isAdminDashboardPage = location.pathname === "/admin/dashboard";
   const adminRow3Class = isAdminDashboardPage
     ? "admin-row3-white"
     : "admin-row3";
