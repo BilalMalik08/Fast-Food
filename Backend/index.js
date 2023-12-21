@@ -5,9 +5,6 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
-import session from "express-session";
-import passport from "passport";
-import { googleOAuthSetup } from "./passport-setup.js";
 import authRoutes from "./routes/authRouter.js";
 import menuRoutes from "./routes/menuRouter.js";
 import reviewRoutes from "./routes/reviewRouter.js";
@@ -15,18 +12,6 @@ import reviewRoutes from "./routes/reviewRouter.js";
 // Express.js configuration
 const app = express();
 const port = process.env.PORT || 4000;
-
-app.use(
-  session({
-    secret: "thisKeyIsSupposedToBeSecret",
-    resave: true,
-    saveUninitialized: true,
-  })
-);
-
-// Initialize Passport
-app.use(passport.initialize());
-app.use(passport.session());
 
 // dotenv configuration
 dotenv.config();
@@ -42,9 +27,6 @@ app.use(
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-
-// Google OAuth setup
-googleOAuthSetup(passport);
 
 // MongoDB connection setup
 const url =
