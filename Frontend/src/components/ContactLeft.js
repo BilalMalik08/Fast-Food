@@ -15,7 +15,11 @@ function ContactLeft() {
         <ul className="list-group">
           <li className="list-group-item">
             <FontAwesomeIcon icon={faPhone} className="contactLeft-icon" />
-            {"Contact: +92 3457265250"}
+            {"Contact 1: +92 3457265250"}
+          </li>{" "}
+          <li className="list-group-item">
+            <FontAwesomeIcon icon={faPhone} className="contactLeft-icon" />
+            {"Contact 2: +92 3303729680"}
           </li>
           <li className="list-group-item">
             <FontAwesomeIcon icon={faEnvelope} className="contactLeft-icon" />
