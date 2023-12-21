@@ -1,6 +1,5 @@
 import GoogleStrategy from "passport-google-oauth20";
 import UserModel from "./models/userModel.js";
-import apiURL from "../Frontend/src/services/api.js";
 
 export const googleOAuthSetup = (passport) => {
   passport.serializeUser((user, done) => {
@@ -20,7 +19,7 @@ export const googleOAuthSetup = (passport) => {
         clientID:
           "284988858980-9ij6jvpc1b2aepjkv8595tfc9ttib5cg.apps.googleusercontent.com",
         clientSecret: "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",
-        callbackURL: `${apiURL}/auth/google/signup/callback`,
+        callbackURL: `https://fast-food-backend-seven.vercel.app/auth/google/signup/callback`,
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
