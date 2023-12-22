@@ -49,7 +49,6 @@ function ShowReviews() {
   return (
     <div className="container-fluid showReviews-container-fluid">
       <div className="row showReviews-row1">
-        <h2>Reviews</h2>
         <div className="table-container">
           <table className="table text-center">
             <thead>

@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Modal, Button, Form } from "react-bootstrap";
 import apiURL from "../services/api";
 import CategorySuccessMessage from "./CategorySuccessMessage";
@@ -57,21 +56,33 @@ const AddCategoryModal = ({ show, handleClose, navigate }) => {
         `${apiURL}/menu/categories/upload`,
         data
       );
-      console.log(response.data);
 
-      // Show the success message
-      setShowSuccessMessage(true);
+      // Check if the response indicates success
+      if (response.data.success) {
+        // Show the success message
+        setShowSuccessMessage(true);
 
-      // Use the navigate prop to navigate to the newly created category page
-      navigate(
-        `/admin/menu/${response.data.adminCategory.trim().toLowerCase()}`
-      );
+        // Close the modal after 3 seconds
+        setTimeout(() => {
+          setShowSuccessMessage(false);
+          handleClose(); // Close the modal
+          // Optionally, you can reset the form values here if needed
+          setFormData({
+            adminCategory: "",
+            items: "",
+            description: "",
+            image: null,
+          });
+        }, 3000);
+      } else {
+        // Show the error popup
+        setShowFailedPopup(true);
 
-      // Close the modal after 3 seconds
-      setTimeout(() => {
-        setShowSuccessMessage(false);
-        handleClose();
-      }, 3000);
+        // Close the failed popup after 3 seconds
+        setTimeout(() => {
+          setShowFailedPopup(false);
+        }, 3000);
+      }
     } catch (error) {
       console.error(error);
 

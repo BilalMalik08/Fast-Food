@@ -124,6 +124,14 @@
     display: none;
 }
 
+button:not(:disabled),
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled) {
+    cursor: pointer;
+    background-color: #1b181b;
+}
+
 
 @media only screen and (min-width: 481px) and (max-width: 820px) {
     .navbar-row1 {
@@ -134,6 +142,10 @@
         display: flex !important;
         margin-bottom: 20px;
     }
+
+    .user-dropdown-btn {
+        margin-bottom: 15px;
+    }
 }
 
 
@@ -141,5 +153,15 @@
     .d-flex {
         display: flex !important;
         margin-bottom: 20px;
+    }
+
+    .user-dropdown-btn {
+        margin-bottom: 15px;
+    }
+
+    .dropdown-menu-user[data-bs-popper] {
+        top: 0%;
+        left: 0%;
+        width: 11%;
     }
 }

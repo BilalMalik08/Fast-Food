@@ -19,7 +19,7 @@ function AdminMenu() {
       <div className="row adminMenu-row1">
         <div className="container adminMenu-btn-container">
           <button
-            className="btn adminMenu-btn btn-outline-dark"
+            className="btn adminMenu-btn btn-dark"
             onClick={handleAddCategoryClick}
           >
             Add Category

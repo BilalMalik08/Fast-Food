@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import complaintImage from "../Img/complaintImage.png";
 import axios from "axios";
 import apiURL from "../services/api";
+import ReviewSuccessPopup from "./ReviewSuccessPopup";
+import ReviewFailPopup from "./ReviewFailPopup";
 
 function ReviewsRight() {
   const [formData, setFormData] = useState({
@@ -11,6 +13,8 @@ function ReviewsRight() {
     email: "",
     opinion: "",
   });
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showFailPopup, setShowFailPopup] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -25,14 +29,17 @@ function ReviewsRight() {
       if (response.status === 201) {
         console.log("Review submitted successfully");
         setFormData({ name: "", contact: "", email: "", opinion: "" });
+        setShowSuccessPopup(true);
       } else {
         console.error(
           "Failed to submit review. Unexpected status:",
           response.status
         );
+        setShowFailPopup(true);
       }
     } catch (error) {
       console.error("Error submitting review", error.message, error.response);
+      setShowFailPopup(true);
     }
   };
 
@@ -122,6 +129,15 @@ function ReviewsRight() {
           alt={complaintImage}
         />
       </div>
+      {showSuccessPopup && (
+        <ReviewSuccessPopup
+          categoryName={formData.name} // Pass the appropriate data for display
+          onClose={() => setShowSuccessPopup(false)}
+        />
+      )}
+      {showFailPopup && (
+        <ReviewFailPopup onClose={() => setShowFailPopup(false)} />
+      )}
     </>
   );
 }
