@@ -68,7 +68,7 @@ function AdminMenuComp() {
                 <div className="card menu-card admin-menu-card">
                   <img
                     className="menu-card-img"
-                    src={`/admin/adminmenu/${menuItem.image}`}
+                    src={`${apiURL}/uploads/${menuItem.image}`}
                     alt={menuItem.adminCategory}
                   />
 
