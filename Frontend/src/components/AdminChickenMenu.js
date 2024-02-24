@@ -6,7 +6,10 @@ function AdminChickenMenu() {
     <>
       <div className="row admin-foodMenu-row1">
         <div className="container admin-foodMenu-btn-container">
-          <button className="btn admin-foodMenu-btn btn-dark" type="submit">
+          <button
+            className="btn admin-foodMenu-btn btn-outline-dark"
+            type="submit"
+          >
             Add Item
           </button>
         </div>

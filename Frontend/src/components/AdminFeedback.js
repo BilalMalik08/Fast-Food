@@ -1,5 +1,4 @@
 import "./showReviews.css";
-import "./adminFeedback.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EditReviewModal from "./EditReviewModal";
@@ -87,6 +86,7 @@ function ShowReviews() {
     <>
       <div className="container-fluid">
         <div className="row showReviews-row1">
+          <h2>Reviews</h2>
           <table className="table text-center">
             <thead>
               <tr>

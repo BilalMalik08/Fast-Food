@@ -128,7 +128,7 @@ function Navbar() {
               <img className="logo" src={FastFoodLogo} alt="" />
             </Link>
             <button
-              className="navbar-toggler custom-navbar-toggler"
+              className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent"
@@ -254,7 +254,7 @@ function Navbar() {
                 />
                 <button
                   className={`btn ${
-                    isDashboardRoute ? "btn-dark" : "btn-dark"
+                    isDashboardRoute ? "btn-outline-dark" : "btn-outline-light"
                   }`}
                   type="submit"
                 >
@@ -264,7 +264,7 @@ function Navbar() {
               {showUserDropdown && (
                 <div className="ms-2">
                   <button
-                    className={`btn btn-dark user-dropdown-btn ${
+                    className={`btn btn-outline-secondary user-dropdown-btn ${
                       isDashboardRoute ? "" : "text-white"
                     }`}
                     type="button"
@@ -282,7 +282,7 @@ function Navbar() {
                     aria-labelledby="userDropdown"
                     style={{
                       position: "absolute",
-                      right: "0%",
+                      right: "0",
                       top: "100%",
                     }}
                   >
@@ -301,7 +301,7 @@ function Navbar() {
               {isDashboardRoute ? (
                 <div className="dropdown ms-2">
                   <button
-                    className={`btn btn-dark dropdown-toggle dropdown-toggle-admin ${
+                    className={`btn btn-outline-dark dropdown-toggle dropdown-toggle-admin ${
                       isDashboardRoute ? "" : "text-white"
                     }`}
                     type="button"

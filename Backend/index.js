@@ -19,7 +19,7 @@ dotenv.config();
 // Middleware setup
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["https://fast-food-frontend-mocha.vercel.app"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })

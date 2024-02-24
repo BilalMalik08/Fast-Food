@@ -19,7 +19,7 @@ function AdminPizzaMenu() {
       <div className="row admin-foodMenu-row1">
         <div className="container admin-foodMenu-btn-container">
           <button
-            className="btn admin-foodMenu-btn btn-dark"
+            className="btn admin-foodMenu-btn btn-outline-dark"
             onClick={handleAddItemClick}
           >
             Add Item

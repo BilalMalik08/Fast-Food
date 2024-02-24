@@ -47,11 +47,10 @@
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
     .checkOut-row2 {
-        height: 75vh;
+        /* margin-bottom: 50vh; */
     }
 
     .checkOut-row2 .col {
         flex: unset;
     }
-
 }

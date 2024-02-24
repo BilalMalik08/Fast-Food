@@ -36,18 +36,12 @@ const addCategory = async (req, res) => {
 
     await newCategory.save();
 
-    res.status(201).json({
-      success: true,
-      message: "Category added successfully",
-      data: newCategory, // Optionally, you can include the newly added category data
-    });
+    res.status(201).json({ message: "Category added successfully" });
   } catch (error) {
     console.error("Error adding category:", error);
-    res.status(500).json({
-      success: false,
-      error: "Internal Server Error",
-      message: error.message,
-    });
+    res
+      .status(500)
+      .json({ error: "Internal Server Error", message: error.message });
   }
 };
 

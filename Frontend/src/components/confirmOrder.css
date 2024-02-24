@@ -59,9 +59,8 @@
     }
 
     .confirmOrder-row2 img {
-        height: 240px;
-        width: 240px;
+        height: 200px;
+        width: 200px;
         animation: unset;
-        padding-bottom: 10px;
     }
 }
