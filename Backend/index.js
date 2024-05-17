@@ -30,7 +30,7 @@ app.use(express.json());
 
 // MongoDB connection setup
 const url =
-  "mongodb+srv://fast-food:bilalfastfood11@cluster0.yeflsll.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://fast-food:devBilalFastFoodWeb@cluster0.yeflsll.mongodb.net/FastFoodDB?retryWrites=true&w=majority";
 
 mongoose
   .connect(url)
